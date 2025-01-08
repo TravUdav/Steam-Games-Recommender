@@ -1,0 +1,26 @@
+meta {
+  name: ResolveVanityURL
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=STEAM_API_KEY&vanityurl=Kseoni4
+  body: none
+  auth: none
+}
+
+params:query {
+  key: STEAM_API_KEY
+  vanityurl: Kseoni4
+}
+
+docs {
+  Параметры:
+  
+  key: Steam Web API ключ.
+  
+  vanityurl: Имя пользователя Steam или последняя часть пользовательской ссылки.
+  
+  Назначение: Используется для преобразования пользовательского имени Steam или пользовательской ссылки профиля в уникальный 64-битный SteamID пользователя. Это необходимо, потому что многие другие API методы Steam требуют именно SteamID64.
+}
