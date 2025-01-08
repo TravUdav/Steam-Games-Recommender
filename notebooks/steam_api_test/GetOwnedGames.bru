@@ -1,0 +1,19 @@
+meta {
+  name: GetOwnedGames
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=STEAM_API_KEY&steamid=76561198204958291&format=json&include_appinfo=1&include_played_free_games=1
+  body: none
+  auth: none
+}
+
+params:query {
+  key: STEAM_API_KEY
+  steamid: 76561197992495897
+  format: json
+  include_appinfo: 1
+  include_played_free_games: 1
+}
