@@ -185,4 +185,6 @@ src/models
 
 # Reports
 src/visualization/Report.html
-.gradio/flagged
+
+# Gradio
+.gradio
