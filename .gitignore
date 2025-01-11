@@ -181,7 +181,8 @@ data/processed/*.old
 /.env
 
 # Model path
-src/models
+src/models/*.pkl
+src/models/*.old
 
 # Reports
 src/visualization/Report.html
