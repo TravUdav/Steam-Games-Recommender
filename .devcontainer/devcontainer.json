@@ -1,0 +1,36 @@
+{
+    "name": "Python Dev Container with CUDA",
+    "build": {
+        "dockerfile": "Dockerfile",
+         "context": ".."
+    },
+    "runArgs": [
+        "--gpus", "all",
+        "--env", "NVIDIA_DRIVER_CAPABILITIES=compute,utility",
+        "--env", "NVIDIA_VISIBLE_DEVICES=all"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/bin/python3",
+                "python.terminal.activateEnvironment": true,
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-vscode.cmake-tools",
+                "eamodio.gitlens",
+                "ms-vsliveshare.vsliveshare",
+                "VisualStudioExptTeam.vscodeintellicode"
+            ]
+        }
+    },
+    "forwardPorts": [8888, 2222]
+}
