@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    runtime: nvidia
+    ports:
+      - "2222:22"
+      - "8888:8888"
+    volumes:
+      - .:/workspace:cached
+    environment:
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - NVIDIA_VISIBLE_DEVICES=all
+    networks:
+      - default
+    privileged: true
+networks:
+  default:
+    driver: bridge
