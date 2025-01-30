@@ -7,6 +7,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import pymorphy2
 from langdetect import detect, LangDetectException
+from cachetools import cached, LRUCache
+
+_data_cleaner_cache = LRUCache(maxsize=1)
 
 class FileHandler:
     """
@@ -97,7 +100,7 @@ class FileHandler:
             print(f"❌ Ошибка сохранения данных в {path}: {e}")
             raise
 
-
+@cached(cache=_data_cleaner_cache)
 class DataCleaner:
     """
     Класс для очистки и предобработки набора данных об играх.
