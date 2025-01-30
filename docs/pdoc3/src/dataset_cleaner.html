@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>src.dataset_cleaner API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.dataset_cleaner</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.dataset_cleaner.DataCleaner"><code class="flex name class">
+<span>class <span class="ident">DataCleaner</span></span>
+<span>(</span><span>columns_to_drop=None,<br>min_description_length=30,<br>max_description_length=240,<br>min_tags=3,<br>words_to_remove=['game', 'world'])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataCleaner:
+    &#34;&#34;&#34;
+    Класс для очистки и предобработки набора данных об играх.
+
+    Предоставляет набор методов для обработки DataFrame, включая удаление столбцов,
+    фильтрацию строк по различным критериям, преобразование типов данных,
+    объединение и очистку текстовых данных, таких как описания и теги.
+    &#34;&#34;&#34;
+    def __init__(self, columns_to_drop=None, min_description_length=30, max_description_length=240, min_tags=3, words_to_remove = [&#39;game&#39;, &#39;world&#39;]):
+        &#34;&#34;&#34;
+         Инициализация DataCleaner.
+
+         Конфигурирует параметры очистки данных, такие как список удаляемых столбцов,
+         минимальная и максимальная длина описаний, минимальное количество тегов и список слов для удаления.
+         Также инициализирует лемматизаторы и стоп-слова для английского и русского языков.
+
+        Аргументы:
+            columns_to_drop (list, optional): Список имен столбцов, которые будут удалены из DataFrame.
+                                             По умолчанию None, используется список столбцов по умолчанию.
+            min_description_length (int, optional): Минимальная длина короткого описания игры после очистки.
+                                                    Описания короче этого значения будут отфильтрованы. По умолчанию 30.
+            max_description_length (int, optional): Максимальная длина короткого описания игры после очистки.
+                                                    Описания длиннее этого значения будут отфильтрованы. По умолчанию 240.
+            min_tags (int, optional): Минимальное количество тегов, которое должна содержать игра, чтобы остаться в наборе данных.
+                                      Игры с меньшим количеством тегов будут отфильтрованы. По умолчанию 3.
+            words_to_remove (list, optional): Список слов, которые будут удалены из описаний игр.
+                                             Используется для удаления общих и неинформативных слов. По умолчанию [&#39;game&#39;, &#39;world&#39;].
+
+        Выводит сообщение в консоль об успешной инициализации DataCleaner.
+        Загружает необходимые ресурсы NLTK (stopwords, wordnet) при первом запуске.
+        &#34;&#34;&#34;
+        self.columns_to_drop = columns_to_drop if columns_to_drop else [
+            &#39;price&#39;, &#39;dlc_count&#39;, &#39;about_the_game&#39;,
+            &#39;reviews&#39;, &#39;website&#39;, &#39;support_url&#39;,
+            &#39;support_email&#39;, &#39;metacritic_score&#39;,
+            &#39;metacritic_url&#39;, &#39;achievements&#39;, &#39;recommendations&#39;,
+            &#39;notes&#39;, &#39;full_audio_languages&#39;, &#39;packages&#39;,
+            &#39;user_score&#39;, &#39;score_rank&#39;,
+            &#39;screenshots&#39;, &#39;movies&#39;,
+            &#39;average_playtime_forever&#39;, &#39;average_playtime_2weeks&#39;,
+            &#39;median_playtime_forever&#39;, &#39;median_playtime_2weeks&#39;,
+            &#39;peak_ccu&#39;
+        ]
+        self.min_description_length = min_description_length
+        self.max_description_length = max_description_length
+        self.min_tags = min_tags
+        self.words_to_remove = words_to_remove
+        print(&#34;✅ DataCleaner инициализирован.&#34;)
+
+        try:
+            stopwords.words(&#39;english&#39;)
+        except LookupError:
+            nltk.download(&#39;stopwords&#39;)
+        try:
+            wordnet_lemmatizer = WordNetLemmatizer()
+            wordnet_lemmatizer.lemmatize(&#39;cats&#39;)
+        except LookupError:
+            nltk.download(&#39;wordnet&#39;)
+            nltk.download(&#39;omw-1.4&#39;)
+
+        self.lemmatizer_en = WordNetLemmatizer()
+        self.stop_words_en = set(stopwords.words(&#39;english&#39;))
+
+        self.morph = pymorphy2.MorphAnalyzer()
+        self.stop_words_ru = set(stopwords.words(&#39;russian&#39;))
+
+
+    def _drop_unnecessary_columns(self, df):
+        &#34;&#34;&#34;Удаляет заданные столбцы из DataFrame.
+
+        Исключает из DataFrame столбцы, перечисленные в `self.columns_to_drop`.
+        Удаление производится на месте (inplace).
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, из которого нужно удалить столбцы.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с удаленными столбцами.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        columns_to_drop_exist = [col for col in self.columns_to_drop if col in df.columns]
+        df.drop(columns=columns_to_drop_exist, inplace=True, errors=&#39;ignore&#39;)
+        return df
+
+    def _filter_rows(self, df):
+        &#34;&#34;&#34;
+        Фильтрует строки DataFrame по набору условий.
+
+        Удаляет строки, которые не соответствуют критериям минимального качества данных,
+        таким как наличие короткого и подробного описания, имени, изображения, поддерживаемых языков и категорий.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame для фильтрации.
+
+        Возвращает:
+            pandas.DataFrame: Отфильтрованный DataFrame.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+
+        mask_to_remove = (
+            ((df[&#39;short_description&#39;].isna()) | (df[&#39;short_description&#39;] == &#39;&#39;)) |
+            ((df[&#39;detailed_description&#39;].isna()) | (df[&#39;detailed_description&#39;] == &#39;&#39;)) |
+            (df[&#39;name&#39;].str.contains(&#39;playtest&#39;, case=False, na=False)) |
+            ((df[&#39;header_image&#39;].isna()) | (df[&#39;header_image&#39;] == &#39;&#39;)) |
+            (df[&#39;supported_languages&#39;].astype(str) == &#39;[]&#39;) |
+            (df[&#39;categories&#39;].astype(str) == &#39;[]&#39;)
+        )
+        df_filtered = df[~mask_to_remove].copy()
+        return df_filtered
+
+    def _filter_name_chars(self, df):
+        &#34;&#34;&#34;
+        Фильтрует DataFrame, оставляя только игры с именами, содержащими латинские буквы, цифры и пробелы.
+
+        Удаляет игры, имена которых содержат символы, отличные от латинских букв, цифр и пробелов,
+        для обеспечения совместимости и упрощения обработки имен.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame для фильтрации.
+
+        Возвращает:
+            pandas.DataFrame: Отфильтрованный DataFrame.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+
+        def clean_name(text):
+             if isinstance(text, str):
+                 return re.sub(r&#39;[^a-zA-Z0-9\s]&#39;, &#39;&#39;, text)
+             return text
+
+        df[&#39;name&#39;] = df[&#39;name&#39;].apply(clean_name)
+
+        def is_valid_name(text):
+            if isinstance(text, str):
+                return bool(re.fullmatch(r&#39;[a-zA-Z0-9\s]+&#39;, text))
+            return False
+
+        mask_to_remove = ~df[&#39;name&#39;].apply(is_valid_name)
+        df_filtered = df[~mask_to_remove].copy()
+        return df_filtered
+
+
+    def _convert_release_date(self, df):
+        &#34;&#34;&#34;
+        Преобразует столбец &#39;release_date&#39; в формат datetime.
+
+        Использует pandas `to_datetime` для преобразования дат выпуска игр в стандартный формат datetime,
+        обрабатывая ошибки преобразования и устанавливая некорректные даты в NaT (Not a Time).
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбец &#39;release_date&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с преобразованным столбцом &#39;release_date&#39;.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        df[&#39;release_date&#39;] = pd.to_datetime(df[&#39;release_date&#39;], errors=&#39;coerce&#39;)
+        return df
+
+    def _convert_bool_columns(self, df):
+         &#34;&#34;&#34;
+        Преобразует столбцы &#39;windows&#39;, &#39;mac&#39;, &#39;linux&#39; в булевый тип данных.
+
+        Приводит значения в столбцах, обозначающих поддержку платформ, к булевому типу,
+        чтобы упростить логические операции и уменьшить объем памяти, используемый для хранения этих данных.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы для преобразования (&#39;windows&#39;, &#39;mac&#39;, &#39;linux&#39;).
+
+        Returns:
+            pandas.DataFrame: DataFrame с преобразованными булевыми столбцами.
+        &#34;&#34;&#34;
+         initial_shape = df.shape
+         bool_mapping = {&#39;true&#39;: True, &#39;false&#39;: False}
+         for col in [&#39;windows&#39;, &#39;mac&#39;, &#39;linux&#39;]:
+              if col in df.columns:
+                df[col] = df[col].astype(str).str.lower().replace({&#39;nan&#39;: None})
+                df[col] = df[col].map(bool_mapping).fillna(False).astype(bool)
+         return df
+
+    def _extract_owners(self, df):
+         &#34;&#34;&#34;
+        Извлекает численное значение из столбца &#39;estimated_owners&#39;.
+
+        Парсит столбец &#39;estimated_owners&#39;, который содержит диапазоны оценочного количества владельцев,
+        и извлекает нижнюю границу диапазона как численное значение, приводя его к целому типу.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбец &#39;estimated_owners&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с преобразованным столбцом &#39;estimated_owners&#39;, содержащим целочисленные значения.
+        &#34;&#34;&#34;
+         initial_shape = df.shape
+         def extract_first_number(owner_range):
+            if isinstance(owner_range, str):
+                parts = owner_range.split(&#39; &#39;, 1)
+                first_part = parts[0].replace(&#39;,&#39;, &#39;&#39;)
+                try:
+                   return int(first_part)
+                except ValueError:
+                    return None
+            return None
+
+         df[&#39;estimated_owners&#39;] = df[&#39;estimated_owners&#39;].apply(extract_first_number)
+         return df
+
+    def _combine_tags(self, df):
+         &#34;&#34;&#34;
+        Объединяет теги из столбцов &#39;categories&#39;, &#39;genres&#39; и &#39;tags&#39; в один столбец &#39;all_tags&#39;.
+
+        Собирает все теги, относящиеся к игре, из разных столбцов и создает единый список тегов для каждой игры,
+        чтобы упростить дальнейший анализ и векторизацию тегов.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы &#39;categories&#39;, &#39;genres&#39; и &#39;tags&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с добавленным столбцом &#39;all_tags&#39;, содержащим списки объединенных тегов.
+        &#34;&#34;&#34;
+         initial_shape = df.shape
+         def combine_tags(row):
+            all_tags_list = []
+
+            if isinstance(row[&#39;categories&#39;], list):
+                all_tags_list.extend(row[&#39;categories&#39;])
+
+            if isinstance(row[&#39;genres&#39;], list):
+                all_tags_list.extend(row[&#39;genres&#39;])
+
+            if &#39;tags&#39; in row and isinstance(row[&#39;tags&#39;], dict):
+                all_tags_list.extend(row[&#39;tags&#39;].keys())
+
+            return list(set(all_tags_list))
+
+         df[&#39;all_tags&#39;] = df.apply(combine_tags, axis=1)
+         return df
+
+    def _replace_empty_values(self, df):
+        &#34;&#34;&#34;
+        Заменяет пустые списки и строки в столбцах &#39;developers&#39; и &#39;publishers&#39; на None.
+
+        Нормализует значения в столбцах &#39;developers&#39; и &#39;publishers&#39;, заменяя пустые значения на None,
+        чтобы обеспечить единообразие и упростить обработку отсутствующих данных.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы &#39;developers&#39; и &#39;publishers&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с замененными пустыми значениями в столбцах &#39;developers&#39; и &#39;publishers&#39;.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        def replace_empty_with_none(series):
+            def replace_item(item):
+                if item == [] or item == [&#39;&#39;] or item == [&#34;&#34;] or item == &#34;&#34;:
+                    return None
+                return item
+
+            return series.apply(replace_item)
+
+        if &#39;developers&#39; in df.columns:
+            df[&#39;developers&#39;] = replace_empty_with_none(df[&#39;developers&#39;])
+        if &#39;publishers&#39; in df.columns:
+            df[&#39;publishers&#39;] = replace_empty_with_none(df[&#39;publishers&#39;])
+        return df
+
+    def _filter_by_language(self, df):
+        &#34;&#34;&#34;
+        Фильтрует DataFrame, оставляя только описания на английском или русском языках.
+
+        Использует `langdetect` для определения языка описаний игр и оставляет только те строки,
+        где и короткое, и подробное описания определены как английские (&#39;en&#39;) или русские (&#39;ru&#39;).
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы &#39;detailed_description&#39; и &#39;short_description&#39;.
+
+        Возвращает:
+            pandas.DataFrame: Отфильтрованный DataFrame, содержащий только описания на английском или русском языках.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+
+        def is_english_or_russian(text):
+           if not isinstance(text, str):
+                return False
+           try:
+                lang = detect(text)
+                return lang == &#39;en&#39; or lang == &#39;ru&#39;
+           except LangDetectException:
+               return False
+
+        df[&#39;detailed_is_en_ru&#39;] = df[&#39;detailed_description&#39;].apply(is_english_or_russian)
+        df[&#39;short_is_en_ru&#39;] = df[&#39;short_description&#39;].apply(is_english_or_russian)
+
+        df_filtered = df[df[&#39;detailed_is_en_ru&#39;] &amp; df[&#39;short_is_en_ru&#39;]].copy()
+        df_filtered = df_filtered.drop(columns=[&#39;detailed_is_en_ru&#39;, &#39;short_is_en_ru&#39;], errors=&#39;ignore&#39;)
+        return df_filtered
+
+    def _clean_and_lemmatize_descriptions(self, df):
+        &#34;&#34;&#34;
+        Очищает и лемматизирует текстовые описания игр.
+
+        Применяет очистку текста, включая приведение к нижнему регистру, удаление знаков пунктуации и цифр,
+        а также лемматизацию слов для английского и русского языков с использованием NLTK и pymorphy2.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы &#39;detailed_description&#39; и &#39;short_description&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с добавленными столбцами &#39;_clean&#39; для очищенных описаний (&#39;detailed_description_clean&#39;, &#39;short_description_clean&#39;).
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+
+        def clean_and_lemmatize(text, lang=&#39;en&#39;):
+            if not isinstance(text, str):
+                return &#34;&#34;
+
+            text = text.lower()
+            text = re.sub(r&#39;[^\w\s]&#39;, &#39;&#39;, text)
+            text = re.sub(r&#39;\d+&#39;, &#39;&#39;, text)
+
+            words = text.split()
+
+            if lang == &#39;ru&#39;:
+                lemmatized_words = [self.morph.parse(word)[0].normal_form for word in words if word not in self.stop_words_ru]
+            else:
+                lemmatized_words = [self.lemmatizer_en.lemmatize(word) for word in words if word not in self.stop_words_en]
+
+            return &#34; &#34;.join(lemmatized_words)
+
+        df[&#39;detailed_description_clean&#39;] = df[&#39;detailed_description&#39;].apply(lambda x: clean_and_lemmatize(x))
+        df[&#39;short_description_clean&#39;] = df[&#39;short_description&#39;].apply(lambda x: clean_and_lemmatize(x))
+        return df
+
+    def _remove_specific_words_from_descriptions(self, df):
+        &#34;&#34;&#34;
+        Удаляет заданные слова из очищенных описаний игр.
+
+        Исключает слова, перечисленные в `self.words_to_remove`, из очищенных коротких и подробных описаний игр,
+        чтобы убрать общие и нерелевантные слова, специфичные для контекста игр.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбцы &#39;short_description_clean&#39; и &#39;detailed_description_clean&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с удаленными специфическими словами из очищенных описаний.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        def remove_words(text):
+            if isinstance(text, str):
+                words = text.split()
+                filtered_words = [word for word in words if word not in self.words_to_remove]
+                return &#39; &#39;.join(filtered_words)
+            return text
+
+        df[&#39;short_description_clean&#39;] = df[&#39;short_description_clean&#39;].apply(remove_words)
+        df[&#39;detailed_description_clean&#39;] = df[&#39;detailed_description_clean&#39;].apply(remove_words)
+        return df
+
+    def _filter_description_length(self, df):
+        &#34;&#34;&#34;
+        Фильтрует DataFrame по длине очищенных коротких описаний.
+
+        Удаляет строки, где длина очищенного короткого описания не попадает в заданный диапазон
+        (`self.min_description_length` и `self.max_description_length`), чтобы обеспечить минимальную и максимальную информативность описаний.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбец &#39;short_description_clean&#39;.
+
+        Возвращает:
+            pandas.DataFrame: Отфильтрованный DataFrame, соответствующий заданным ограничениям по длине описаний.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        if isinstance(data, str):
+            df_filtered = df[(df[&#39;short_description_clean&#39;].str.len() &gt;= self.min_description_length) &amp; (df[&#39;short_description_clean&#39;].str.len() &lt;= self.max_description_length)].copy()
+        else:
+            df_filtered = df.copy()
+        return df_filtered
+
+    def _clean_and_lowercase_tags(self, df):
+        &#34;&#34;&#34;
+        Очищает и приводит к нижнему регистру теги в столбце &#39;all_tags&#39;.
+
+        Удаляет из тегов символы, не являющиеся буквами или цифрами, приводит все теги к нижнему регистру
+        и удаляет лишние пробелы, обеспечивая стандартный и очищенный вид тегов.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбец &#39;all_tags&#39;.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame с очищенными и приведенными к нижнему регистру тегами.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        def clean_tags(tags):
+            if isinstance(tags, list):
+                cleaned_tags = [re.sub(r&#39;[^a-zA-Z0-9\s]&#39;, &#39;&#39;, tag).lower().strip() for tag in tags]
+                return cleaned_tags
+            return tags
+
+        df[&#39;all_tags&#39;] = df[&#39;all_tags&#39;].apply(clean_tags)
+        return df
+
+    def _filter_tags_count(self, df):
+        &#34;&#34;&#34;
+        Фильтрует DataFrame по минимальному количеству тегов в столбце &#39;all_tags&#39;.
+
+        Удаляет строки, где количество тегов в списке &#39;all_tags&#39; меньше, чем заданное значение `self.min_tags`,
+        чтобы отфильтровать игры с недостаточным количеством тегов для анализа.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, содержащий столбец &#39;all_tags&#39;.
+
+        Возвращает:
+            pandas.DataFrame: Отфильтрованный DataFrame, содержащий только игры с достаточным количеством тегов.
+        &#34;&#34;&#34;
+        initial_shape = df.shape
+        df_filtered = df[df[&#39;all_tags&#39;].apply(lambda x: isinstance(x, list) and len(x) &gt;= self.min_tags)].copy()
+        return df_filtered
+
+    def clean_data(self, data):
+         &#34;&#34;&#34;
+        Координирует процесс очистки данных DataFrame.
+
+        Вызывает последовательно все методы очистки данных, определенные в классе,
+        для обработки DataFrame и подготовки данных к дальнейшему анализу или моделированию.
+        Метод может принимать как DataFrame, так и путь к файлу с данными.
+
+        Аргументы:
+            data (pandas.DataFrame или str): DataFrame для очистки или путь к файлу (JSON, CSV), который нужно загрузить и очистить.
+
+        Возвращает:
+            pandas.DataFrame: Очищенный DataFrame.
+
+        Вызывает:
+            ValueError: Если входные данные не являются DataFrame и не строкой (путем к файлу).
+
+        Выводит в консоль сообщения о начале и завершении процесса очистки, а также начальную и конечную форму DataFrame.
+        &#34;&#34;&#34;
+         print(&#34;🧹 Начинается процесс очистки данных...&#34;)
+         if isinstance(data, str):
+              file_handler = FileHandler()
+              df = file_handler.load_data(data)
+              apply_description_length_filter = True
+         elif isinstance(data, pd.DataFrame):
+             df = data.copy()
+             apply_description_length_filter = False
+         else:
+             raise ValueError(&#34;❌ Входные данные должны быть pandas DataFrame или путем к файлу.&#34;)
+
+         initial_shape = df.shape
+         print(f&#34;📊 Исходная форма DataFrame перед очисткой: {initial_shape}&#34;)
+
+         df = self._filter_rows(df)
+         df = self._combine_tags(df)
+         df = self._drop_unnecessary_columns(df)
+         df = self._filter_name_chars(df)
+         df = self._convert_release_date(df)
+         df = self._convert_bool_columns(df)
+         df = self._extract_owners(df)
+         df = self._replace_empty_values(df)
+         df = self._filter_by_language(df)
+         df = self._clean_and_lemmatize_descriptions(df)
+         df = self._remove_specific_words_from_descriptions(df)
+         if apply_description_length_filter:
+            df = self._filter_description_length(df)
+         df = self._clean_and_lowercase_tags(df)
+         df = self._filter_tags_count(df)
+
+         print(f&#34;✅ Процесс очистки данных завершен. Итоговая форма: {df.shape}&#34;)
+         return df</code></pre>
+</details>
+<div class="desc"><p>Класс для очистки и предобработки набора данных об играх.</p>
+<p>Предоставляет набор методов для обработки DataFrame, включая удаление столбцов,
+фильтрацию строк по различным критериям, преобразование типов данных,
+объединение и очистку текстовых данных, таких как описания и теги.</p>
+<p>Инициализация DataCleaner.</p>
+<p>Конфигурирует параметры очистки данных, такие как список удаляемых столбцов,
+минимальная и максимальная длина описаний, минимальное количество тегов и список слов для удаления.
+Также инициализирует лемматизаторы и стоп-слова для английского и русского языков.</p>
+<p>Аргументы:
+columns_to_drop (list, optional): Список имен столбцов, которые будут удалены из DataFrame.
+По умолчанию None, используется список столбцов по умолчанию.
+min_description_length (int, optional): Минимальная длина короткого описания игры после очистки.
+Описания короче этого значения будут отфильтрованы. По умолчанию 30.
+max_description_length (int, optional): Максимальная длина короткого описания игры после очистки.
+Описания длиннее этого значения будут отфильтрованы. По умолчанию 240.
+min_tags (int, optional): Минимальное количество тегов, которое должна содержать игра, чтобы остаться в наборе данных.
+Игры с меньшим количеством тегов будут отфильтрованы. По умолчанию 3.
+words_to_remove (list, optional): Список слов, которые будут удалены из описаний игр.
+Используется для удаления общих и неинформативных слов. По умолчанию ['game', 'world'].</p>
+<p>Выводит сообщение в консоль об успешной инициализации DataCleaner.
+Загружает необходимые ресурсы NLTK (stopwords, wordnet) при первом запуске.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="src.dataset_cleaner.DataCleaner.clean_data"><code class="name flex">
+<span>def <span class="ident">clean_data</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_data(self, data):
+     &#34;&#34;&#34;
+    Координирует процесс очистки данных DataFrame.
+
+    Вызывает последовательно все методы очистки данных, определенные в классе,
+    для обработки DataFrame и подготовки данных к дальнейшему анализу или моделированию.
+    Метод может принимать как DataFrame, так и путь к файлу с данными.
+
+    Аргументы:
+        data (pandas.DataFrame или str): DataFrame для очистки или путь к файлу (JSON, CSV), который нужно загрузить и очистить.
+
+    Возвращает:
+        pandas.DataFrame: Очищенный DataFrame.
+
+    Вызывает:
+        ValueError: Если входные данные не являются DataFrame и не строкой (путем к файлу).
+
+    Выводит в консоль сообщения о начале и завершении процесса очистки, а также начальную и конечную форму DataFrame.
+    &#34;&#34;&#34;
+     print(&#34;🧹 Начинается процесс очистки данных...&#34;)
+     if isinstance(data, str):
+          file_handler = FileHandler()
+          df = file_handler.load_data(data)
+          apply_description_length_filter = True
+     elif isinstance(data, pd.DataFrame):
+         df = data.copy()
+         apply_description_length_filter = False
+     else:
+         raise ValueError(&#34;❌ Входные данные должны быть pandas DataFrame или путем к файлу.&#34;)
+
+     initial_shape = df.shape
+     print(f&#34;📊 Исходная форма DataFrame перед очисткой: {initial_shape}&#34;)
+
+     df = self._filter_rows(df)
+     df = self._combine_tags(df)
+     df = self._drop_unnecessary_columns(df)
+     df = self._filter_name_chars(df)
+     df = self._convert_release_date(df)
+     df = self._convert_bool_columns(df)
+     df = self._extract_owners(df)
+     df = self._replace_empty_values(df)
+     df = self._filter_by_language(df)
+     df = self._clean_and_lemmatize_descriptions(df)
+     df = self._remove_specific_words_from_descriptions(df)
+     if apply_description_length_filter:
+        df = self._filter_description_length(df)
+     df = self._clean_and_lowercase_tags(df)
+     df = self._filter_tags_count(df)
+
+     print(f&#34;✅ Процесс очистки данных завершен. Итоговая форма: {df.shape}&#34;)
+     return df</code></pre>
+</details>
+<div class="desc"><p>Координирует процесс очистки данных DataFrame.</p>
+<p>Вызывает последовательно все методы очистки данных, определенные в классе,
+для обработки DataFrame и подготовки данных к дальнейшему анализу или моделированию.
+Метод может принимать как DataFrame, так и путь к файлу с данными.</p>
+<p>Аргументы:
+data (pandas.DataFrame или str): DataFrame для очистки или путь к файлу (JSON, CSV), который нужно загрузить и очистить.</p>
+<p>Возвращает:
+pandas.DataFrame: Очищенный DataFrame.</p>
+<p>Вызывает:
+ValueError: Если входные данные не являются DataFrame и не строкой (путем к файлу).</p>
+<p>Выводит в консоль сообщения о начале и завершении процесса очистки, а также начальную и конечную форму DataFrame.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="src.dataset_cleaner.FileHandler"><code class="flex name class">
+<span>class <span class="ident">FileHandler</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileHandler:
+    &#34;&#34;&#34;
+    Класс для обработки операций загрузки и сохранения данных из файлов JSON и CSV.
+
+    Предоставляет методы для чтения данных из файлов различных форматов, таких как JSON и CSV,
+    в pandas DataFrame, а также для сохранения DataFrame обратно в файлы JSON или CSV.
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34;
+        Инициализация FileHandler.
+
+        Выводит сообщение в консоль об успешной инициализации FileHandler.
+        &#34;&#34;&#34;
+        print(&#34;✅ FileHandler инициализирован.&#34;)
+
+    def load_data(self, path):
+        &#34;&#34;&#34;
+        Загружает данные из файла JSON или CSV в pandas DataFrame.
+
+        Определяет тип файла по расширению и использует соответствующий метод pandas для загрузки данных.
+        Поддерживает файлы с расширениями .json, .csv и .txt.
+
+        Аргументы:
+            path (str): Путь к файлу, из которого необходимо загрузить данные.
+
+        Возвращает:
+            pandas.DataFrame: DataFrame, содержащий загруженные данные.
+
+        Вызывает:
+            FileNotFoundError: Если файл по указанному пути не существует.
+            ValueError: Если расширение файла не поддерживается.
+            Exception: В случае любых других ошибок при чтении файла.
+
+        Выводит в консоль сообщения о начале загрузки, успехе и ошибках.
+        &#34;&#34;&#34;
+        print(f&#34;🔄 Загрузка данных из файла: {path}&#34;)
+        if not os.path.exists(path):
+            print(f&#34;❌ Файл не найден: {path}&#34;)
+            raise FileNotFoundError(f&#34;Файл не найден: {path}&#34;)
+        try:
+            if path.lower().endswith(&#34;.json&#34;):
+                with open(path, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+                   data = json.load(f)
+                df = pd.DataFrame(data).T
+                print(f&#34;✅ Данные успешно загружены из JSON, форма: {df.shape}&#34;)
+                return df
+            elif path.lower().endswith((&#34;.csv&#34;, &#34;.txt&#34;)):
+                df = pd.read_csv(path)
+                print(f&#34;✅ Данные успешно загружены из CSV, форма: {df.shape}&#34;)
+                return df
+            else:
+                print(f&#34;❌ Неподдерживаемый формат файла: {path}&#34;)
+                raise ValueError(f&#34;Неподдерживаемый формат файла: {path}&#34;)
+        except Exception as e:
+            print(f&#34;❌ Ошибка загрузки данных из {path}: {e}&#34;)
+            raise
+
+    def save_data(self, df, path):
+        &#34;&#34;&#34;
+        Сохраняет pandas DataFrame в файл JSON или CSV.
+
+        Определяет формат файла по расширению и использует соответствующий метод pandas для сохранения DataFrame.
+        Поддерживает файлы с расширениями .json, .csv и .txt.
+
+        Аргументы:
+            df (pandas.DataFrame): DataFrame, который необходимо сохранить.
+            path (str): Путь к файлу, в который необходимо сохранить данные.
+
+         Вызывает:
+            ValueError: Если расширение файла не поддерживается.
+            Exception: В случае любых других ошибок при записи файла.
+
+        Выводит в консоль сообщения о начале сохранения, успехе и ошибках.
+        &#34;&#34;&#34;
+        print(f&#34;💾 Сохранение данных в файл: {path}&#34;)
+        try:
+            if path.lower().endswith(&#34;.json&#34;):
+                df.to_json(path)
+                print(f&#34;✅ Данные успешно сохранены в JSON, форма: {df.shape}&#34;)
+            elif path.lower().endswith((&#34;.csv&#34;, &#34;.txt&#34;)):
+                df.to_csv(path, index=False)
+                print(f&#34;✅ Данные успешно сохранены в CSV, форма: {df.shape}&#34;)
+            else:
+                print(f&#34;❌ Неподдерживаемый формат файла: {path}&#34;)
+                raise ValueError(f&#34;Неподдерживаемый формат файла: {path}&#34;)
+        except Exception as e:
+            print(f&#34;❌ Ошибка сохранения данных в {path}: {e}&#34;)
+            raise</code></pre>
+</details>
+<div class="desc"><p>Класс для обработки операций загрузки и сохранения данных из файлов JSON и CSV.</p>
+<p>Предоставляет методы для чтения данных из файлов различных форматов, таких как JSON и CSV,
+в pandas DataFrame, а также для сохранения DataFrame обратно в файлы JSON или CSV.</p>
+<p>Инициализация FileHandler.</p>
+<p>Выводит сообщение в консоль об успешной инициализации FileHandler.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="src.dataset_cleaner.FileHandler.load_data"><code class="name flex">
+<span>def <span class="ident">load_data</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_data(self, path):
+    &#34;&#34;&#34;
+    Загружает данные из файла JSON или CSV в pandas DataFrame.
+
+    Определяет тип файла по расширению и использует соответствующий метод pandas для загрузки данных.
+    Поддерживает файлы с расширениями .json, .csv и .txt.
+
+    Аргументы:
+        path (str): Путь к файлу, из которого необходимо загрузить данные.
+
+    Возвращает:
+        pandas.DataFrame: DataFrame, содержащий загруженные данные.
+
+    Вызывает:
+        FileNotFoundError: Если файл по указанному пути не существует.
+        ValueError: Если расширение файла не поддерживается.
+        Exception: В случае любых других ошибок при чтении файла.
+
+    Выводит в консоль сообщения о начале загрузки, успехе и ошибках.
+    &#34;&#34;&#34;
+    print(f&#34;🔄 Загрузка данных из файла: {path}&#34;)
+    if not os.path.exists(path):
+        print(f&#34;❌ Файл не найден: {path}&#34;)
+        raise FileNotFoundError(f&#34;Файл не найден: {path}&#34;)
+    try:
+        if path.lower().endswith(&#34;.json&#34;):
+            with open(path, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+               data = json.load(f)
+            df = pd.DataFrame(data).T
+            print(f&#34;✅ Данные успешно загружены из JSON, форма: {df.shape}&#34;)
+            return df
+        elif path.lower().endswith((&#34;.csv&#34;, &#34;.txt&#34;)):
+            df = pd.read_csv(path)
+            print(f&#34;✅ Данные успешно загружены из CSV, форма: {df.shape}&#34;)
+            return df
+        else:
+            print(f&#34;❌ Неподдерживаемый формат файла: {path}&#34;)
+            raise ValueError(f&#34;Неподдерживаемый формат файла: {path}&#34;)
+    except Exception as e:
+        print(f&#34;❌ Ошибка загрузки данных из {path}: {e}&#34;)
+        raise</code></pre>
+</details>
+<div class="desc"><p>Загружает данные из файла JSON или CSV в pandas DataFrame.</p>
+<p>Определяет тип файла по расширению и использует соответствующий метод pandas для загрузки данных.
+Поддерживает файлы с расширениями .json, .csv и .txt.</p>
+<p>Аргументы:
+path (str): Путь к файлу, из которого необходимо загрузить данные.</p>
+<p>Возвращает:
+pandas.DataFrame: DataFrame, содержащий загруженные данные.</p>
+<p>Вызывает:
+FileNotFoundError: Если файл по указанному пути не существует.
+ValueError: Если расширение файла не поддерживается.
+Exception: В случае любых других ошибок при чтении файла.</p>
+<p>Выводит в консоль сообщения о начале загрузки, успехе и ошибках.</p></div>
+</dd>
+<dt id="src.dataset_cleaner.FileHandler.save_data"><code class="name flex">
+<span>def <span class="ident">save_data</span></span>(<span>self, df, path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_data(self, df, path):
+    &#34;&#34;&#34;
+    Сохраняет pandas DataFrame в файл JSON или CSV.
+
+    Определяет формат файла по расширению и использует соответствующий метод pandas для сохранения DataFrame.
+    Поддерживает файлы с расширениями .json, .csv и .txt.
+
+    Аргументы:
+        df (pandas.DataFrame): DataFrame, который необходимо сохранить.
+        path (str): Путь к файлу, в который необходимо сохранить данные.
+
+     Вызывает:
+        ValueError: Если расширение файла не поддерживается.
+        Exception: В случае любых других ошибок при записи файла.
+
+    Выводит в консоль сообщения о начале сохранения, успехе и ошибках.
+    &#34;&#34;&#34;
+    print(f&#34;💾 Сохранение данных в файл: {path}&#34;)
+    try:
+        if path.lower().endswith(&#34;.json&#34;):
+            df.to_json(path)
+            print(f&#34;✅ Данные успешно сохранены в JSON, форма: {df.shape}&#34;)
+        elif path.lower().endswith((&#34;.csv&#34;, &#34;.txt&#34;)):
+            df.to_csv(path, index=False)
+            print(f&#34;✅ Данные успешно сохранены в CSV, форма: {df.shape}&#34;)
+        else:
+            print(f&#34;❌ Неподдерживаемый формат файла: {path}&#34;)
+            raise ValueError(f&#34;Неподдерживаемый формат файла: {path}&#34;)
+    except Exception as e:
+        print(f&#34;❌ Ошибка сохранения данных в {path}: {e}&#34;)
+        raise</code></pre>
+</details>
+<div class="desc"><p>Сохраняет pandas DataFrame в файл JSON или CSV.</p>
+<p>Определяет формат файла по расширению и использует соответствующий метод pandas для сохранения DataFrame.
+Поддерживает файлы с расширениями .json, .csv и .txt.</p>
+<p>Аргументы:
+df (pandas.DataFrame): DataFrame, который необходимо сохранить.
+path (str): Путь к файлу, в который необходимо сохранить данные.</p>
+<p>Вызывает:
+ValueError: Если расширение файла не поддерживается.
+Exception: В случае любых других ошибок при записи файла.</p>
+<p>Выводит в консоль сообщения о начале сохранения, успехе и ошибках.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.dataset_cleaner.DataCleaner" href="#src.dataset_cleaner.DataCleaner">DataCleaner</a></code></h4>
+<ul class="">
+<li><code><a title="src.dataset_cleaner.DataCleaner.clean_data" href="#src.dataset_cleaner.DataCleaner.clean_data">clean_data</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="src.dataset_cleaner.FileHandler" href="#src.dataset_cleaner.FileHandler">FileHandler</a></code></h4>
+<ul class="">
+<li><code><a title="src.dataset_cleaner.FileHandler.load_data" href="#src.dataset_cleaner.FileHandler.load_data">load_data</a></code></li>
+<li><code><a title="src.dataset_cleaner.FileHandler.save_data" href="#src.dataset_cleaner.FileHandler.save_data">save_data</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

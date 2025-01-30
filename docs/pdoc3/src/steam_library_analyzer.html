@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>src.steam_library_analyzer API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.steam_library_analyzer</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.steam_library_analyzer.calculate_similarity_and_rank"><code class="name flex">
+<span>def <span class="ident">calculate_similarity_and_rank</span></span>(<span>self, games_data, combination_method='average')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_similarity_and_rank(self, games_data, combination_method=&#39;average&#39;):
+    &#34;&#34;&#34;Вычисляет косинусную схожесть и ранжирует игры на основе комбинированных векторов.&#34;&#34;&#34;
+    if not games_data:
+        return []
+
+    print(f&#34;\n--- ⚙️ Метод calculate_similarity_and_rank: {combination_method} ---&#34;)
+
+    train_vectors = self.model.transform(self.train_df)
+
+    new_df = pd.DataFrame(games_data)
+    new_df[&#39;short_description_clean&#39;] = new_df[&#39;short_description&#39;].apply(clean_text)
+    new_df[&#39;steam_id&#39;] = [game.get(&#39;appid&#39;) for game in games_data]
+
+    game_vectors = self.model.transform(new_df)
+
+    if combination_method == &#39;average&#39;:
+        combined_game_vector = np.mean(game_vectors, axis=0).reshape(1, -1)
+        method_name = &#34;Обычное усреднение векторов&#34;
+    elif combination_method == &#39;sum&#39;:
+        combined_game_vector = np.sum(game_vectors, axis=0).reshape(1, -1)
+        method_name = &#34;Обычное суммирование векторов&#34;
+    else:
+        raise ValueError(f&#34;❌ Неизвестный метод комбинирования: {combination_method}&#34;)
+
+    similarities = cosine_similarity(combined_game_vector, train_vectors)
+    game_similarities = similarities[0]
+    ranked_indices = np.argsort(game_similarities)[::-1]
+
+    game_recommendations = []
+
+    input_game_names_processed = {process_game_name(game_data.get(&#39;name&#39;)) for game_data in games_data if &#39;name&#39; in game_data}
+    print(f&#34;🐞 input_game_names_processed: {input_game_names_processed}&#34;)
+
+    for j in ranked_indices:
+        recommended_game = self.train_df.iloc[j]
+        recommended_game_name = recommended_game[&#39;name&#39;]
+        recommended_game_name_processed = process_game_name(recommended_game_name)
+
+        print(f&#34;🤔 Рассматриваем рекомендацию: Название: {recommended_game_name}, Processed Name: {recommended_game_name_processed}&#34;)
+
+        if recommended_game_name_processed in input_game_names_processed:
+            print(f&#34;🚫 Исключена игра: {recommended_game_name} (processed name: {recommended_game_name_processed}) так как она есть во входной группе.&#34;)
+            continue
+        else:
+            print(f&#34;🔍 Проверка имени: &#39;{recommended_game_name_processed}&#39; не в &#39;{input_game_names_processed}&#39; - игра НЕ из входной группы.&#34;)
+
+        estimated_owners = recommended_game[&#39;estimated_owners&#39;]
+        positive = recommended_game[&#39;positive&#39;]
+        negative = recommended_game[&#39;negative&#39;]
+
+        if estimated_owners == 0:
+            print(f&#34;🚫 Исключена игра: {recommended_game_name} (steam_id: {recommended_game.name}) из-за estimated_owners == 0.&#34;)
+            continue
+
+        if isinstance(positive, (int, float)) and isinstance(negative, (int, float)):
+            total_reviews = positive + negative
+            if total_reviews &gt; 0:
+                positive_ratio = positive / total_reviews
+                if positive_ratio &lt; 0.7:
+                    print(f&#34;🚫 Исключена игра: {recommended_game_name} (steam_id: {recommended_game.name}) из-за positive_ratio &lt; 0.7 ({positive_ratio:.2f}).&#34;)
+                    continue
+
+        if len(game_recommendations) &lt; 10:
+            game_recommendations.append(
+                {
+                    &#34;name&#34;: recommended_game_name,
+                    &#34;estimated_owners&#34;: estimated_owners,
+                    &#34;steam_id&#34;: recommended_game.name,
+                    &#34;similarity_score&#34;: game_similarities[j]
+                }
+            )
+        if len(game_recommendations) &gt;= 10:
+            break
+
+    scores = [d[&#39;similarity_score&#39;] for d in game_recommendations]
+    median_similarity = np.median(scores) if scores else 0
+
+    ranked_game_group = {
+        &#34;game_data&#34;: {&#34;name&#34;: f&#34;Группа игр ({method_name})&#34;, &#34;appid&#34;: f&#34;group_{combination_method}&#34;},
+        &#34;recommendations&#34;: game_recommendations,
+        &#34;median_similarity&#34;: median_similarity,
+        &#34;combination_method&#34;: method_name
+    }
+    return ranked_game_group</code></pre>
+</details>
+<div class="desc"><p>Вычисляет косинусную схожесть и ранжирует игры на основе комбинированных векторов.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.load_dataframe"><code class="name flex">
+<span>def <span class="ident">load_dataframe</span></span>(<span>df_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_dataframe(df_path):
+    &#34;&#34;&#34;Загружает DataFrame из JSON файла и обрабатывает индекс.&#34;&#34;&#34;
+    df = pd.read_json(df_path)
+    if &#39;steam_id&#39; in df.index.names:
+        df[&#39;steam_id&#39;] = df.index
+        df = df.reset_index(drop=True)
+        df = df.set_index(&#39;steam_id&#39;)
+    else:
+        if df.index.is_numeric():
+            df[&#39;steam_id&#39;] = df.index.astype(int)
+            df = df.reset_index(drop=True)
+            df = df.set_index(&#39;steam_id&#39;)
+    return df</code></pre>
+</details>
+<div class="desc"><p>Загружает DataFrame из JSON файла и обрабатывает индекс.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.load_model"><code class="name flex">
+<span>def <span class="ident">load_model</span></span>(<span>model_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_model(model_path):
+    &#34;&#34;&#34;Загружает предварительно обученную модель из указанного файла.&#34;&#34;&#34;
+    with open(model_path, &#39;rb&#39;) as f:
+        return pickle.load(f)</code></pre>
+</details>
+<div class="desc"><p>Загружает предварительно обученную модель из указанного файла.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Главная функция для запуска анализа библиотеки игр пользователя Steam или одиночной игры.&#34;&#34;&#34;
+    analyzer = LibraryAnalyzer()
+    parser = argparse.ArgumentParser(description=&#34;Анализ библиотеки игр Steam или одиночной игры для получения рекомендаций.&#34;)
+    group = parser.add_mutually_exclusive_group(required=True) # Группа для взаимоисключающих аргументов
+
+    group.add_argument(&#39;--library&#39;, action=&#39;store_true&#39;, help=&#39;Запустить анализ библиотеки игр пользователя Steam (использует STEAM_USER_URL из .env по умолчанию).&#39;)
+    group.add_argument(&#39;--game&#39;, type=str, help=&#39;Запустить анализ для одиночной игры. Укажите steamid, название игры или ссылку на игру.&#39;)
+
+    args = parser.parse_args()
+
+    if args.library:
+        print(&#34;Выбран режим анализа библиотеки.&#34;)
+        analyzer.run_analysis(STEAM_USER_URL) # Используем STEAM_USER_URL из .env
+    elif args.game:
+        print(f&#34;Выбран режим анализа одиночной игры для: &#39;{args.game}&#39;.&#34;)
+        game_recommendations = analyzer.analyze_single_game(args.game)
+        if game_recommendations:
+            print(f&#34;\n--- 🏆 Рекомендации для игры &#39;{args.game}&#39; ---&#34;)
+            recommendations = game_recommendations.get(&#34;recommendations&#34;)
+            median_similarity = game_recommendations.get(&#34;median_similarity&#34;)
+            combination_method_name = game_recommendations.get(&#34;combination_method&#34;)
+
+            print(f&#34;\n✨ Метод комбинирования: {combination_method_name}&#34;)
+            print(f&#34;⭐ Медиана similarity score: {median_similarity:.4f}&#34;)
+            print(&#34;✅ Рекомендации:&#34;)
+            for rec in recommendations:
+                print(f&#34;  - 🎮 Название: {rec[&#39;name&#39;]}, 👤 Владельцы: {rec[&#39;estimated_owners&#39;]}, 🆔 Steam ID: {rec[&#39;steam_id&#39;]}, 💯 Схожесть: {rec[&#39;similarity_score&#39;]:.4f}&#34;)
+            print(&#34;---&#34;)
+        else:
+            print(&#34;❌ Не удалось получить рекомендации для указанной игры.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Главная функция для запуска анализа библиотеки игр пользователя Steam или одиночной игры.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.process_game_name"><code class="name flex">
+<span>def <span class="ident">process_game_name</span></span>(<span>name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_game_name(name):
+    &#34;&#34;&#34;Обрабатывает название игры для целей сравнения.&#34;&#34;&#34;
+    if not isinstance(name, str):
+        return &#34;&#34;
+    name_lower = name.lower()
+    name_latin_only = re.sub(r&#39;[^a-z0-9\s]&#39;, &#39;&#39;, name_lower)
+    return name_latin_only</code></pre>
+</details>
+<div class="desc"><p>Обрабатывает название игры для целей сравнения.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer"><code class="flex name class">
+<span>class <span class="ident">LibraryAnalyzer</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LibraryAnalyzer:
+    &#34;&#34;&#34;
+    Класс для анализа библиотеки игр пользователя Steam и генерации рекомендаций.
+    &#34;&#34;&#34;
+    process_game_name = staticmethod(process_game_name)
+    calculate_similarity_and_rank = calculate_similarity_and_rank
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        Инициализирует LibraryAnalyzer.
+        &#34;&#34;&#34;
+        self.api_parser = ApiParser()
+        self.model = load_model(MODEL_PATH)
+        self.train_df = load_dataframe(DF_PROCESSED_JSON_PATH)
+        self.train_df[&#39;short_description_clean&#39;] = self.train_df[&#39;short_description&#39;].apply(clean_text)
+        self.data_cleaner = DataCleaner()
+
+    def get_games_data_from_dataset(self, games):
+        &#34;&#34;&#34;Извлекает данные об играх из предварительно загруженного датасета.&#34;&#34;&#34;
+        found_games = []
+        not_found_games = []
+        for game in games:
+            app_id = game.get(&#34;appid&#34;)
+            if app_id is not None and app_id in self.train_df.index:
+              found_games.append(self.train_df.loc[app_id])
+            else:
+                not_found_games.append(game)
+        return found_games, not_found_games
+
+    def get_games_data_from_api(self, not_found_games):
+        &#34;&#34;&#34;Получает данные об играх из Steam API и Steam Spy API.&#34;&#34;&#34;
+        games_data = []
+        if not not_found_games:
+            return games_data
+        for game in not_found_games:
+            app_id = game.get(&#39;appid&#39;)
+            if app_id:
+                steam_web_api_response = self.api_parser.steam_web_api_client.make_request(
+                    request_name=&#34;get_app_details&#34;,
+                    request_params={&#34;appids&#34;: app_id}
+                )
+
+                app_data = None
+                if steam_web_api_response[&#39;error&#39;] is None and steam_web_api_response[&#39;response_json&#39;]:
+                    app_data = steam_web_api_response[&#39;response_json&#39;].get(str(app_id), {}).get(&#39;data&#39;)
+
+                if app_data:
+                    categories = app_data.get(&#34;categories&#34;, [])
+                    if not isinstance(categories, list):
+                        categories = []
+                    parsed_data = {
+                        &#34;name&#34;: app_data.get(&#34;name&#34;, &#34;placeholder&#34;),
+                        &#34;release_date&#34;: app_data.get(&#34;release_date&#34;, {}).get(&#34;date&#34;, &#34;placeholder&#34;),
+                        &#34;required_age&#34;: app_data.get(&#34;required_age&#34;, &#34;placeholder&#34;),
+                        &#34;price&#34;: app_data.get(&#34;price_overview&#34;, {}).get(&#34;final_formatted&#34;, &#34;placeholder&#34;),
+                        &#34;dlc_count&#34;: len(app_data.get(&#34;dlc&#34;, [])) if isinstance(app_data.get(&#34;dlc&#34;), list) else 0,
+                        &#34;detailed_description&#34;: app_data.get(&#34;detailed_description&#34;, &#34;placeholder&#34;),
+                        &#34;about_the_game&#34;: app_data.get(&#34;about_the_game&#34;, &#34;placeholder&#34;),
+                        &#34;short_description&#34;: app_data.get(&#34;short_description&#34;, &#34;placeholder&#34;),
+                        &#34;reviews&#34;: app_data.get(&#34;reviews&#34;, &#34;placeholder&#34;),
+                        &#34;header_image&#34;: app_data.get(&#34;header_image&#34;, &#34;placeholder&#34;),
+                        &#34;website&#34;: app_data.get(&#34;website&#34;, &#34;placeholder&#34;),
+                        &#34;support_url&#34;: app_data.get(&#34;support_info&#34;, {}).get(&#34;url&#34;, &#34;placeholder&#34;),
+                        &#34;support_email&#34;: app_data.get(&#34;support_info&#34;, {}).get(&#34;email&#34;, &#34;placeholder&#34;),
+                        &#34;windows&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;windows&#34;, &#34;placeholder&#34;),
+                        &#34;mac&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;mac&#34;, &#34;placeholder&#34;),
+                        &#34;linux&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;linux&#34;, &#34;placeholder&#34;),
+                        &#34;metacritic_score&#34;: app_data.get(&#34;metacritic&#34;, {}).get(&#34;score&#34;, &#34;placeholder&#34;),
+                        &#34;metacritic_url&#34;: app_data.get(&#34;metacritic&#34;, {}).get(&#34;url&#34;, &#34;placeholder&#34;),
+                        &#34;achievements&#34;: app_data.get(&#34;achievements&#34;, {}).get(&#34;total&#34;, &#34;placeholder&#34;),
+                        &#34;recommendations&#34;: app_data.get(&#34;recommendations&#34;, {}).get(&#34;total&#34;, &#34;placeholder&#34;),
+                        &#34;notes&#34;: &#34;placeholder&#34;,
+                        &#34;supported_languages&#34;: app_data.get(&#34;supported_languages&#34;, &#34;placeholder&#34;),
+                        &#34;full_audio_languages&#34;: app_data.get(&#34;full_audio_languages&#34;, &#34;placeholder&#34;),
+                        &#34;packages&#34;: app_data.get(&#34;packages&#34;, &#34;placeholder&#34;),
+                        &#34;developers&#34;: app_data.get(&#34;developers&#34;, &#34;placeholder&#34;),
+                        &#34;publishers&#34;: app_data.get(&#34;publishers&#34;, &#34;placeholder&#34;),
+                        &#34;categories&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                        &#34;genres&#34;: [genre.get(&#34;description&#34;, &#34;placeholder&#34;) for genre in app_data.get(&#34;genres&#34;, [])],
+                        &#34;screenshots&#34;: [ss.get(&#34;path_thumbnail&#34;, &#34;placeholder&#34;) for ss in app_data.get(&#34;screenshots&#34;, [])],
+                        &#34;movies&#34;: [m.get(&#34;webm&#34;, {}).get(&#34;480&#34;, &#34;placeholder&#34;) for m in app_data.get(&#34;movies&#34;, [])],
+                        &#34;user_score&#34;: &#34;placeholder&#34;,
+                        &#34;score_rank&#34;: &#34;placeholder&#34;,
+                        &#34;positive&#34;: &#34;placeholder&#34;,
+                        &#34;negative&#34;: &#34;placeholder&#34;,
+                        &#34;estimated_owners&#34;: app_data.get(&#34;estimated_owners&#34;, np.nan),
+                        &#34;average_playtime_forever&#34;: &#34;placeholder&#34;,
+                        &#34;average_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                        &#34;median_playtime_forever&#34;: &#34;placeholder&#34;,
+                        &#34;median_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                        &#34;peak_ccu&#34;: &#34;placeholder&#34;,
+                        &#34;all_tags&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                        &#34;steam_id&#34;: app_id
+                    }
+                    if pd.isna(parsed_data[&#34;estimated_owners&#34;]):
+                        parsed_data[&#34;estimated_owners&#34;] = 100000
+
+                    cleaned_data = self.data_cleaner.clean_data(pd.DataFrame([parsed_data]))
+                    if cleaned_data.shape[0] &gt; 0:
+                        games_data.append(cleaned_data.to_dict(&#39;records&#39;)[0])
+                else:
+                    steamspy_api_response = self.api_parser.steamspy_api_client.make_request(
+                        request_name=&#34;get_app_details&#34;,
+                        request_params={&#34;appid&#34;: app_id}
+                    )
+                    if steamspy_api_response[&#39;error&#39;] is None and steamspy_api_response[&#39;response_json&#39;]:
+                        app_data = steamspy_api_response[&#39;response_json&#39;]
+                        categories = app_data.get(&#34;categories&#34;, [])
+                        if not isinstance(categories, list):
+                            categories = []
+
+                        parsed_data = {
+                            &#34;name&#34;: app_data.get(&#34;name&#34;, &#34;placeholder&#34;),
+                            &#34;release_date&#34;: &#34;placeholder&#34;,
+                            &#34;required_age&#34;: &#34;placeholder&#34;,
+                            &#34;price&#34;: &#34;placeholder&#34;,
+                            &#34;dlc_count&#34;: &#34;placeholder&#34;,
+                            &#34;detailed_description&#34;: &#34;placeholder&#34;,
+                            &#34;about_the_game&#34;: &#34;placeholder&#34;,
+                            &#34;short_description&#34;: &#34;placeholder&#34;,
+                            &#34;reviews&#34;: &#34;placeholder&#34;,
+                            &#34;header_image&#34;: &#34;placeholder&#34;,
+                            &#34;website&#34;: &#34;placeholder&#34;,
+                            &#34;support_url&#34;: &#34;placeholder&#34;,
+                            &#34;support_email&#34;: &#34;placeholder&#34;,
+                            &#34;windows&#34;: &#34;placeholder&#34;,
+                            &#34;mac&#34;: &#34;placeholder&#34;,
+                            &#34;linux&#34;: &#34;placeholder&#34;,
+                            &#34;metacritic_score&#34;: app_data.get(&#34;metacritic&#34;, &#34;placeholder&#34;),
+                            &#34;metacritic_url&#34;: &#34;placeholder&#34;,
+                            &#34;achievements&#34;: &#34;placeholder&#34;,
+                            &#34;recommendations&#34;: &#34;placeholder&#34;,
+                            &#34;notes&#34;: &#34;placeholder&#34;,
+                            &#34;supported_languages&#34;: &#34;placeholder&#34;,
+                            &#34;full_audio_languages&#34;: &#34;placeholder&#34;,
+                            &#34;packages&#34;: &#34;placeholder&#34;,
+                            &#34;developers&#34;: &#34;placeholder&#34;,
+                            &#34;publishers&#34;: &#34;placeholder&#34;,
+                            &#34;categories&#34;: &#34;placeholder&#34;,
+                            &#34;genres&#34;: &#34;placeholder&#34;,
+                            &#34;screenshots&#34;: &#34;placeholder&#34;,
+                            &#34;movies&#34;: &#34;placeholder&#34;,
+                            &#34;user_score&#34;: &#34;placeholder&#34;,
+                            &#34;score_rank&#34;: &#34;placeholder&#34;,
+                            &#34;positive&#34;: app_data.get(&#34;positive&#34;, &#34;placeholder&#34;),
+                            &#34;negative&#34;: app_data.get(&#34;negative&#34;, &#34;placeholder&#34;),
+                            &#34;estimated_owners&#34;: app_data.get(&#34;owners&#34;, np.nan),
+                            &#34;average_playtime_forever&#34;: &#34;placeholder&#34;,
+                            &#34;average_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                            &#34;median_playtime_forever&#34;: &#34;placeholder&#34;,
+                            &#34;median_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                            &#34;peak_ccu&#34;: &#34;placeholder&#34;,
+                            &#34;all_tags&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                            &#34;steam_id&#34;: app_id
+                        }
+                        if pd.isna(parsed_data[&#34;estimated_owners&#34;]):
+                            parsed_data[&#34;estimated_owners&#34;] = 100000
+
+                        cleaned_data = self.data_cleaner.clean_data(pd.DataFrame([parsed_data]))
+                        if cleaned_data.shape[0] &gt; 0:
+                            games_data.append(cleaned_data.to_dict(&#39;records&#39;)[0])
+                    else:
+                        print(f&#34;⚠️ Не удалось получить данные из Steam API и Steam Spy API для app_id: {app_id}. Название игры: {game.get(&#39;name&#39;, &#39;Неизвестно&#39;)}&#34;)
+        return games_data
+
+    def analyze_single_game(self, game_identifier):
+        &#34;&#34;&#34;Анализирует одиночную игру и возвращает рекомендации.&#34;&#34;&#34;
+        print(f&#34;🚀 Запуск анализа для одиночной игры: {game_identifier}&#34;)
+
+        game_data_list = []
+        app_id = None
+
+        # Попытка извлечь appid из ссылки, если это ссылка
+        if &#39;store.steampowered.com/app/&#39; in game_identifier:
+            match = re.search(r&#39;/app/(\d+)&#39;, game_identifier)
+            if match:
+                app_id = match.group(1)
+        elif game_identifier.isdigit():
+            app_id = game_identifier
+
+        if app_id:
+            print(f&#34;🆔 Идентифицирован App ID: {app_id}&#34;)
+            game_data_from_dataset, not_found_dataset = self.get_games_data_from_dataset([{&#39;appid&#39;: app_id}])
+            if game_data_from_dataset:
+                game_data_list = [fg.to_dict() for fg in game_data_from_dataset]
+            else:
+                api_game_data = self.get_games_data_from_api([{&#39;appid&#39;: app_id}])
+                if api_game_data:
+                    game_data_list = api_game_data
+                else:
+                    print(f&#34;❌ Не удалось получить данные для игры с App ID: {app_id}&#34;)
+                    return None
+        else:
+            # Поиск игры по названию (менее надежно, может быть несколько игр с похожими названиями)
+            print(f&#34;🔍 Поиск игры по названию: &#39;{game_identifier}&#39;&#34;)
+            found_games_by_name = self.train_df[self.train_df[&#39;name&#39;].str.lower() == game_identifier.lower()]
+            if not found_games_by_name.empty:
+                print(f&#34;✅ Игра по названию найдена в датасете.&#34;)
+                game_data_list = [found_games_by_name.iloc[0].to_dict()] # Берем первую найденную игру, если их несколько
+                app_id = game_data_list[0].get(&#39;steam_id&#39;)
+            else:
+                print(f&#34;⚠️ Игра по названию не найдена в датасете. Попытка поиска через API (может быть медленно).&#34;)
+                # Тут можно добавить поиск через API по названию, но это сложнее и выходит за рамки текущей задачи.
+                print(f&#34;❌ Поиск по названию через API не реализован. Пожалуйста, используйте App ID или ссылку на игру.&#34;)
+                return None
+
+        if not game_data_list:
+            print(f&#34;❌ Не удалось получить данные об игре для анализа: {game_identifier}&#34;)
+            return None
+
+        ranked_game_group = self.calculate_similarity_and_rank(game_data_list, combination_method=&#39;average&#39;)
+        return ranked_game_group
+
+
+    def analyze_single_game_for_gradio(self, game_identifier):
+        &#34;&#34;&#34;Анализирует одиночную игру и возвращает рекомендации в текстовом формате для Gradio.&#34;&#34;&#34;
+        ranked_game_group = self.analyze_single_game(game_identifier)
+        if ranked_game_group:
+            recommendations = ranked_game_group.get(&#34;recommendations&#34;)
+            median_similarity = ranked_game_group.get(&#34;median_similarity&#34;)
+            combination_method_name = ranked_game_group.get(&#34;combination_method&#34;)
+
+            output_text = f&#34;🏆 Рекомендации для игры &#39;{game_identifier}&#39;:\n&#34;
+            output_text += f&#34;✨ Метод комбинирования: {combination_method_name}\n&#34;
+            output_text += f&#34;⭐ Медиана similarity score: {median_similarity:.4f}\n&#34;
+            output_text += &#34;✅ Рекомендации:\n&#34;
+            for rec in recommendations:
+                output_text += f&#34;  - 🎮 Название: {rec[&#39;name&#39;]}, 👤 Владельцы: {rec[&#39;estimated_owners&#39;]}, 🆔 Steam ID: {rec[&#39;steam_id&#39;]}, 💯 Схожесть: {rec[&#39;similarity_score&#39;]:.4f}\n&#34;
+            output_text += &#34;---\n&#34;
+            return output_text
+        else:
+            return &#34;❌ Не удалось получить рекомендации для указанной игры.&#34;
+
+
+    def run_analysis_for_gradio(self, steam_user_url):
+        &#34;&#34;&#34;Запускает анализ библиотеки игр пользователя Steam и возвращает рекомендации в текстовом формате для Gradio.&#34;&#34;&#34;
+        ranked_games_with_similarity = self.run_analysis_get_results(steam_user_url) # Вызываем новую функцию для получения результатов
+
+        if not ranked_games_with_similarity:
+            return &#34;❌ Не удалось получить рекомендации для библиотеки пользователя.&#34;
+
+        output_text = &#34;&#34;
+        for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+            method_results = ranked_games_with_similarity.get(group_name, {})
+            if method_results:
+                output_text += f&#34;\n--- 🏆 Рекомендации для группы &#39;{group_name}&#39; ---\n&#34;
+                output_text += f&#34;Игры в группе: {[game_item[&#39;name&#39;] for game_item in self.all_games_with_data.get(group_name, [])]}\n&#34; # Используем сохраненные данные
+                for method, ranked_game_group in method_results.items():
+                    recommendations = ranked_game_group.get(&#34;recommendations&#34;)
+                    median_similarity = ranked_game_group.get(&#34;median_similarity&#34;)
+                    combination_method_name = ranked_game_group.get(&#34;combination_method&#34;)
+
+                    output_text += f&#34;\n✨ Метод комбинирования: {combination_method_name}\n&#34;
+                    output_text += f&#34;⭐ Медиана similarity score: {median_similarity:.4f}\n&#34;
+                    output_text += &#34;✅ Рекомендации:\n&#34;
+                    for rec in recommendations:
+                        output_text += f&#34;  - 🎮 Название: {rec[&#39;name&#39;]}, 👤 Владельцы: {rec[&#39;estimated_owners&#39;]}, 🆔 Steam ID: {rec[&#39;steam_id&#39;]}, 💯 Схожесть: {rec[&#39;similarity_score&#39;]:.4f}\n&#34;
+                    output_text += &#34;---\n&#34;
+        return output_text
+
+
+    def run_analysis_get_results(self, steam_user_url):
+        &#34;&#34;&#34;
+        Запускает анализ библиотеки игр пользователя Steam и возвращает результаты в виде словаря,
+        без форматирования вывода для Gradio.
+        &#34;&#34;&#34;
+        print(f&#34;🚀 Запуск анализа библиотеки для пользователя с URL: {steam_user_url}&#34;)
+        # Убираем повторный вызов resolve_vanity_url, предполагаем, что URL уже корректный
+        # steam_user_id = self.api_parser.resolve_vanity_url(steam_user_url) # УДАЛЯЕМ ЭТУ СТРОКУ
+        steam_user_id_match = re.search(r&#39;/profiles/(\d+)&#39;, steam_user_url) # Пытаемся извлечь SteamID64 из URL
+        if steam_user_id_match:
+            steam_user_id = steam_user_id_match.group(1)
+        elif steam_user_url.isdigit() and len(steam_user_url) == 17: # Если передан SteamID64 напрямую
+            steam_user_id = steam_user_url
+        elif &#39;/id/&#39; in steam_user_url: # Если vanity url, нужно получить id через API
+            vanity_name = steam_user_url.split(&#39;/&#39;)[-1]
+            steam_user_id = self.api_parser.resolve_vanity_url(vanity_name)
+        else:
+            print(&#34;❌ Не удалось получить Steam ID пользователя из URL.&#34;)
+            return None
+
+
+        if not steam_user_id:
+            print(&#34;❌ Не удалось получить Steam ID пользователя.&#34;)
+            return None
+        print(f&#34;👤 Получен Steam ID пользователя: {steam_user_id}&#34;)
+
+        owned_games = self.api_parser.get_owned_games(steam_user_id)
+        if not owned_games:
+            print(&#34;⚠️ Не удалось получить список игр пользователя.&#34;)
+            return None
+        print(f&#34;🎮 Получено {len(owned_games)} игр от пользователя.&#34;)
+
+        grouped_games_data = {}
+        grouped_games = group_user_games(owned_games)
+        print(f&#34;📦 Игры сгруппированы: {grouped_games.keys()}&#34;)
+
+        self.all_games_with_data = {} # Сохраняем данные о играх для использования в Gradio output
+
+        for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+            games = grouped_games.get(group_name, [])
+            if not games:
+                grouped_games_data[group_name] = []
+                continue
+
+            all_games_with_data_for_group = []
+
+            print(f&#34;🔍 Обработка группы игр: {group_name}&#34;)
+            found_games, not_found_games = self.get_games_data_from_dataset(games)
+            print(f&#34;   ✅ Найдено в датасете: {len(found_games)} игр, ⚠️ не найдено в датасете: {len(not_found_games)} игр&#34;)
+            api_games_data = self.get_games_data_from_api(not_found_games)
+            print(f&#34;   ✅ Получено из API: {len(api_games_data)} игр&#34;)
+
+            found_game_dict_list = [fg.to_dict() if isinstance(fg, pd.Series) else fg for fg in found_games]
+            all_games_with_data_for_group = found_game_dict_list + api_games_data
+            self.all_games_with_data[group_name] = all_games_with_data_for_group # Сохраняем тут
+
+        ranked_games_with_similarity = {}
+        combination_methods_to_test = [&#39;average&#39;]
+
+        for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+            games_data = self.all_games_with_data.get(group_name, []) # Используем сохраненные данные
+            if games_data:
+                ranked_games_with_similarity[group_name] = {}
+                for method in combination_methods_to_test:
+                    print(f&#34;📊 Расчет similarity score для группы &#39;{group_name}&#39; методом &#39;{method}&#39;&#34;)
+                    ranked_group_results = self.calculate_similarity_and_rank(games_data, combination_method=method)
+                    ranked_games_with_similarity[group_name][method] = ranked_group_results
+            else:
+                print(f&#34;ℹ️ Нет данных об играх для группы &#39;{group_name}&#39;. Пропускаем расчет similarity.&#34;)
+
+        return ranked_games_with_similarity</code></pre>
+</details>
+<div class="desc"><p>Класс для анализа библиотеки игр пользователя Steam и генерации рекомендаций.</p>
+<p>Инициализирует LibraryAnalyzer.</p></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.process_game_name"><code class="name flex">
+<span>def <span class="ident">process_game_name</span></span>(<span>name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_game_name(name):
+    &#34;&#34;&#34;Обрабатывает название игры для целей сравнения.&#34;&#34;&#34;
+    if not isinstance(name, str):
+        return &#34;&#34;
+    name_lower = name.lower()
+    name_latin_only = re.sub(r&#39;[^a-z0-9\s]&#39;, &#39;&#39;, name_lower)
+    return name_latin_only</code></pre>
+</details>
+<div class="desc"><p>Обрабатывает название игры для целей сравнения.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game"><code class="name flex">
+<span>def <span class="ident">analyze_single_game</span></span>(<span>self, game_identifier)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def analyze_single_game(self, game_identifier):
+    &#34;&#34;&#34;Анализирует одиночную игру и возвращает рекомендации.&#34;&#34;&#34;
+    print(f&#34;🚀 Запуск анализа для одиночной игры: {game_identifier}&#34;)
+
+    game_data_list = []
+    app_id = None
+
+    # Попытка извлечь appid из ссылки, если это ссылка
+    if &#39;store.steampowered.com/app/&#39; in game_identifier:
+        match = re.search(r&#39;/app/(\d+)&#39;, game_identifier)
+        if match:
+            app_id = match.group(1)
+    elif game_identifier.isdigit():
+        app_id = game_identifier
+
+    if app_id:
+        print(f&#34;🆔 Идентифицирован App ID: {app_id}&#34;)
+        game_data_from_dataset, not_found_dataset = self.get_games_data_from_dataset([{&#39;appid&#39;: app_id}])
+        if game_data_from_dataset:
+            game_data_list = [fg.to_dict() for fg in game_data_from_dataset]
+        else:
+            api_game_data = self.get_games_data_from_api([{&#39;appid&#39;: app_id}])
+            if api_game_data:
+                game_data_list = api_game_data
+            else:
+                print(f&#34;❌ Не удалось получить данные для игры с App ID: {app_id}&#34;)
+                return None
+    else:
+        # Поиск игры по названию (менее надежно, может быть несколько игр с похожими названиями)
+        print(f&#34;🔍 Поиск игры по названию: &#39;{game_identifier}&#39;&#34;)
+        found_games_by_name = self.train_df[self.train_df[&#39;name&#39;].str.lower() == game_identifier.lower()]
+        if not found_games_by_name.empty:
+            print(f&#34;✅ Игра по названию найдена в датасете.&#34;)
+            game_data_list = [found_games_by_name.iloc[0].to_dict()] # Берем первую найденную игру, если их несколько
+            app_id = game_data_list[0].get(&#39;steam_id&#39;)
+        else:
+            print(f&#34;⚠️ Игра по названию не найдена в датасете. Попытка поиска через API (может быть медленно).&#34;)
+            # Тут можно добавить поиск через API по названию, но это сложнее и выходит за рамки текущей задачи.
+            print(f&#34;❌ Поиск по названию через API не реализован. Пожалуйста, используйте App ID или ссылку на игру.&#34;)
+            return None
+
+    if not game_data_list:
+        print(f&#34;❌ Не удалось получить данные об игре для анализа: {game_identifier}&#34;)
+        return None
+
+    ranked_game_group = self.calculate_similarity_and_rank(game_data_list, combination_method=&#39;average&#39;)
+    return ranked_game_group</code></pre>
+</details>
+<div class="desc"><p>Анализирует одиночную игру и возвращает рекомендации.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game_for_gradio"><code class="name flex">
+<span>def <span class="ident">analyze_single_game_for_gradio</span></span>(<span>self, game_identifier)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def analyze_single_game_for_gradio(self, game_identifier):
+    &#34;&#34;&#34;Анализирует одиночную игру и возвращает рекомендации в текстовом формате для Gradio.&#34;&#34;&#34;
+    ranked_game_group = self.analyze_single_game(game_identifier)
+    if ranked_game_group:
+        recommendations = ranked_game_group.get(&#34;recommendations&#34;)
+        median_similarity = ranked_game_group.get(&#34;median_similarity&#34;)
+        combination_method_name = ranked_game_group.get(&#34;combination_method&#34;)
+
+        output_text = f&#34;🏆 Рекомендации для игры &#39;{game_identifier}&#39;:\n&#34;
+        output_text += f&#34;✨ Метод комбинирования: {combination_method_name}\n&#34;
+        output_text += f&#34;⭐ Медиана similarity score: {median_similarity:.4f}\n&#34;
+        output_text += &#34;✅ Рекомендации:\n&#34;
+        for rec in recommendations:
+            output_text += f&#34;  - 🎮 Название: {rec[&#39;name&#39;]}, 👤 Владельцы: {rec[&#39;estimated_owners&#39;]}, 🆔 Steam ID: {rec[&#39;steam_id&#39;]}, 💯 Схожесть: {rec[&#39;similarity_score&#39;]:.4f}\n&#34;
+        output_text += &#34;---\n&#34;
+        return output_text
+    else:
+        return &#34;❌ Не удалось получить рекомендации для указанной игры.&#34;</code></pre>
+</details>
+<div class="desc"><p>Анализирует одиночную игру и возвращает рекомендации в текстовом формате для Gradio.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.calculate_similarity_and_rank"><code class="name flex">
+<span>def <span class="ident">calculate_similarity_and_rank</span></span>(<span>self, games_data, combination_method='average')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_similarity_and_rank(self, games_data, combination_method=&#39;average&#39;):
+    &#34;&#34;&#34;Вычисляет косинусную схожесть и ранжирует игры на основе комбинированных векторов.&#34;&#34;&#34;
+    if not games_data:
+        return []
+
+    print(f&#34;\n--- ⚙️ Метод calculate_similarity_and_rank: {combination_method} ---&#34;)
+
+    train_vectors = self.model.transform(self.train_df)
+
+    new_df = pd.DataFrame(games_data)
+    new_df[&#39;short_description_clean&#39;] = new_df[&#39;short_description&#39;].apply(clean_text)
+    new_df[&#39;steam_id&#39;] = [game.get(&#39;appid&#39;) for game in games_data]
+
+    game_vectors = self.model.transform(new_df)
+
+    if combination_method == &#39;average&#39;:
+        combined_game_vector = np.mean(game_vectors, axis=0).reshape(1, -1)
+        method_name = &#34;Обычное усреднение векторов&#34;
+    elif combination_method == &#39;sum&#39;:
+        combined_game_vector = np.sum(game_vectors, axis=0).reshape(1, -1)
+        method_name = &#34;Обычное суммирование векторов&#34;
+    else:
+        raise ValueError(f&#34;❌ Неизвестный метод комбинирования: {combination_method}&#34;)
+
+    similarities = cosine_similarity(combined_game_vector, train_vectors)
+    game_similarities = similarities[0]
+    ranked_indices = np.argsort(game_similarities)[::-1]
+
+    game_recommendations = []
+
+    input_game_names_processed = {process_game_name(game_data.get(&#39;name&#39;)) for game_data in games_data if &#39;name&#39; in game_data}
+    print(f&#34;🐞 input_game_names_processed: {input_game_names_processed}&#34;)
+
+    for j in ranked_indices:
+        recommended_game = self.train_df.iloc[j]
+        recommended_game_name = recommended_game[&#39;name&#39;]
+        recommended_game_name_processed = process_game_name(recommended_game_name)
+
+        print(f&#34;🤔 Рассматриваем рекомендацию: Название: {recommended_game_name}, Processed Name: {recommended_game_name_processed}&#34;)
+
+        if recommended_game_name_processed in input_game_names_processed:
+            print(f&#34;🚫 Исключена игра: {recommended_game_name} (processed name: {recommended_game_name_processed}) так как она есть во входной группе.&#34;)
+            continue
+        else:
+            print(f&#34;🔍 Проверка имени: &#39;{recommended_game_name_processed}&#39; не в &#39;{input_game_names_processed}&#39; - игра НЕ из входной группы.&#34;)
+
+        estimated_owners = recommended_game[&#39;estimated_owners&#39;]
+        positive = recommended_game[&#39;positive&#39;]
+        negative = recommended_game[&#39;negative&#39;]
+
+        if estimated_owners == 0:
+            print(f&#34;🚫 Исключена игра: {recommended_game_name} (steam_id: {recommended_game.name}) из-за estimated_owners == 0.&#34;)
+            continue
+
+        if isinstance(positive, (int, float)) and isinstance(negative, (int, float)):
+            total_reviews = positive + negative
+            if total_reviews &gt; 0:
+                positive_ratio = positive / total_reviews
+                if positive_ratio &lt; 0.7:
+                    print(f&#34;🚫 Исключена игра: {recommended_game_name} (steam_id: {recommended_game.name}) из-за positive_ratio &lt; 0.7 ({positive_ratio:.2f}).&#34;)
+                    continue
+
+        if len(game_recommendations) &lt; 10:
+            game_recommendations.append(
+                {
+                    &#34;name&#34;: recommended_game_name,
+                    &#34;estimated_owners&#34;: estimated_owners,
+                    &#34;steam_id&#34;: recommended_game.name,
+                    &#34;similarity_score&#34;: game_similarities[j]
+                }
+            )
+        if len(game_recommendations) &gt;= 10:
+            break
+
+    scores = [d[&#39;similarity_score&#39;] for d in game_recommendations]
+    median_similarity = np.median(scores) if scores else 0
+
+    ranked_game_group = {
+        &#34;game_data&#34;: {&#34;name&#34;: f&#34;Группа игр ({method_name})&#34;, &#34;appid&#34;: f&#34;group_{combination_method}&#34;},
+        &#34;recommendations&#34;: game_recommendations,
+        &#34;median_similarity&#34;: median_similarity,
+        &#34;combination_method&#34;: method_name
+    }
+    return ranked_game_group</code></pre>
+</details>
+<div class="desc"><p>Вычисляет косинусную схожесть и ранжирует игры на основе комбинированных векторов.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_api"><code class="name flex">
+<span>def <span class="ident">get_games_data_from_api</span></span>(<span>self, not_found_games)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_games_data_from_api(self, not_found_games):
+    &#34;&#34;&#34;Получает данные об играх из Steam API и Steam Spy API.&#34;&#34;&#34;
+    games_data = []
+    if not not_found_games:
+        return games_data
+    for game in not_found_games:
+        app_id = game.get(&#39;appid&#39;)
+        if app_id:
+            steam_web_api_response = self.api_parser.steam_web_api_client.make_request(
+                request_name=&#34;get_app_details&#34;,
+                request_params={&#34;appids&#34;: app_id}
+            )
+
+            app_data = None
+            if steam_web_api_response[&#39;error&#39;] is None and steam_web_api_response[&#39;response_json&#39;]:
+                app_data = steam_web_api_response[&#39;response_json&#39;].get(str(app_id), {}).get(&#39;data&#39;)
+
+            if app_data:
+                categories = app_data.get(&#34;categories&#34;, [])
+                if not isinstance(categories, list):
+                    categories = []
+                parsed_data = {
+                    &#34;name&#34;: app_data.get(&#34;name&#34;, &#34;placeholder&#34;),
+                    &#34;release_date&#34;: app_data.get(&#34;release_date&#34;, {}).get(&#34;date&#34;, &#34;placeholder&#34;),
+                    &#34;required_age&#34;: app_data.get(&#34;required_age&#34;, &#34;placeholder&#34;),
+                    &#34;price&#34;: app_data.get(&#34;price_overview&#34;, {}).get(&#34;final_formatted&#34;, &#34;placeholder&#34;),
+                    &#34;dlc_count&#34;: len(app_data.get(&#34;dlc&#34;, [])) if isinstance(app_data.get(&#34;dlc&#34;), list) else 0,
+                    &#34;detailed_description&#34;: app_data.get(&#34;detailed_description&#34;, &#34;placeholder&#34;),
+                    &#34;about_the_game&#34;: app_data.get(&#34;about_the_game&#34;, &#34;placeholder&#34;),
+                    &#34;short_description&#34;: app_data.get(&#34;short_description&#34;, &#34;placeholder&#34;),
+                    &#34;reviews&#34;: app_data.get(&#34;reviews&#34;, &#34;placeholder&#34;),
+                    &#34;header_image&#34;: app_data.get(&#34;header_image&#34;, &#34;placeholder&#34;),
+                    &#34;website&#34;: app_data.get(&#34;website&#34;, &#34;placeholder&#34;),
+                    &#34;support_url&#34;: app_data.get(&#34;support_info&#34;, {}).get(&#34;url&#34;, &#34;placeholder&#34;),
+                    &#34;support_email&#34;: app_data.get(&#34;support_info&#34;, {}).get(&#34;email&#34;, &#34;placeholder&#34;),
+                    &#34;windows&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;windows&#34;, &#34;placeholder&#34;),
+                    &#34;mac&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;mac&#34;, &#34;placeholder&#34;),
+                    &#34;linux&#34;: app_data.get(&#34;platforms&#34;, {}).get(&#34;linux&#34;, &#34;placeholder&#34;),
+                    &#34;metacritic_score&#34;: app_data.get(&#34;metacritic&#34;, {}).get(&#34;score&#34;, &#34;placeholder&#34;),
+                    &#34;metacritic_url&#34;: app_data.get(&#34;metacritic&#34;, {}).get(&#34;url&#34;, &#34;placeholder&#34;),
+                    &#34;achievements&#34;: app_data.get(&#34;achievements&#34;, {}).get(&#34;total&#34;, &#34;placeholder&#34;),
+                    &#34;recommendations&#34;: app_data.get(&#34;recommendations&#34;, {}).get(&#34;total&#34;, &#34;placeholder&#34;),
+                    &#34;notes&#34;: &#34;placeholder&#34;,
+                    &#34;supported_languages&#34;: app_data.get(&#34;supported_languages&#34;, &#34;placeholder&#34;),
+                    &#34;full_audio_languages&#34;: app_data.get(&#34;full_audio_languages&#34;, &#34;placeholder&#34;),
+                    &#34;packages&#34;: app_data.get(&#34;packages&#34;, &#34;placeholder&#34;),
+                    &#34;developers&#34;: app_data.get(&#34;developers&#34;, &#34;placeholder&#34;),
+                    &#34;publishers&#34;: app_data.get(&#34;publishers&#34;, &#34;placeholder&#34;),
+                    &#34;categories&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                    &#34;genres&#34;: [genre.get(&#34;description&#34;, &#34;placeholder&#34;) for genre in app_data.get(&#34;genres&#34;, [])],
+                    &#34;screenshots&#34;: [ss.get(&#34;path_thumbnail&#34;, &#34;placeholder&#34;) for ss in app_data.get(&#34;screenshots&#34;, [])],
+                    &#34;movies&#34;: [m.get(&#34;webm&#34;, {}).get(&#34;480&#34;, &#34;placeholder&#34;) for m in app_data.get(&#34;movies&#34;, [])],
+                    &#34;user_score&#34;: &#34;placeholder&#34;,
+                    &#34;score_rank&#34;: &#34;placeholder&#34;,
+                    &#34;positive&#34;: &#34;placeholder&#34;,
+                    &#34;negative&#34;: &#34;placeholder&#34;,
+                    &#34;estimated_owners&#34;: app_data.get(&#34;estimated_owners&#34;, np.nan),
+                    &#34;average_playtime_forever&#34;: &#34;placeholder&#34;,
+                    &#34;average_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                    &#34;median_playtime_forever&#34;: &#34;placeholder&#34;,
+                    &#34;median_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                    &#34;peak_ccu&#34;: &#34;placeholder&#34;,
+                    &#34;all_tags&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                    &#34;steam_id&#34;: app_id
+                }
+                if pd.isna(parsed_data[&#34;estimated_owners&#34;]):
+                    parsed_data[&#34;estimated_owners&#34;] = 100000
+
+                cleaned_data = self.data_cleaner.clean_data(pd.DataFrame([parsed_data]))
+                if cleaned_data.shape[0] &gt; 0:
+                    games_data.append(cleaned_data.to_dict(&#39;records&#39;)[0])
+            else:
+                steamspy_api_response = self.api_parser.steamspy_api_client.make_request(
+                    request_name=&#34;get_app_details&#34;,
+                    request_params={&#34;appid&#34;: app_id}
+                )
+                if steamspy_api_response[&#39;error&#39;] is None and steamspy_api_response[&#39;response_json&#39;]:
+                    app_data = steamspy_api_response[&#39;response_json&#39;]
+                    categories = app_data.get(&#34;categories&#34;, [])
+                    if not isinstance(categories, list):
+                        categories = []
+
+                    parsed_data = {
+                        &#34;name&#34;: app_data.get(&#34;name&#34;, &#34;placeholder&#34;),
+                        &#34;release_date&#34;: &#34;placeholder&#34;,
+                        &#34;required_age&#34;: &#34;placeholder&#34;,
+                        &#34;price&#34;: &#34;placeholder&#34;,
+                        &#34;dlc_count&#34;: &#34;placeholder&#34;,
+                        &#34;detailed_description&#34;: &#34;placeholder&#34;,
+                        &#34;about_the_game&#34;: &#34;placeholder&#34;,
+                        &#34;short_description&#34;: &#34;placeholder&#34;,
+                        &#34;reviews&#34;: &#34;placeholder&#34;,
+                        &#34;header_image&#34;: &#34;placeholder&#34;,
+                        &#34;website&#34;: &#34;placeholder&#34;,
+                        &#34;support_url&#34;: &#34;placeholder&#34;,
+                        &#34;support_email&#34;: &#34;placeholder&#34;,
+                        &#34;windows&#34;: &#34;placeholder&#34;,
+                        &#34;mac&#34;: &#34;placeholder&#34;,
+                        &#34;linux&#34;: &#34;placeholder&#34;,
+                        &#34;metacritic_score&#34;: app_data.get(&#34;metacritic&#34;, &#34;placeholder&#34;),
+                        &#34;metacritic_url&#34;: &#34;placeholder&#34;,
+                        &#34;achievements&#34;: &#34;placeholder&#34;,
+                        &#34;recommendations&#34;: &#34;placeholder&#34;,
+                        &#34;notes&#34;: &#34;placeholder&#34;,
+                        &#34;supported_languages&#34;: &#34;placeholder&#34;,
+                        &#34;full_audio_languages&#34;: &#34;placeholder&#34;,
+                        &#34;packages&#34;: &#34;placeholder&#34;,
+                        &#34;developers&#34;: &#34;placeholder&#34;,
+                        &#34;publishers&#34;: &#34;placeholder&#34;,
+                        &#34;categories&#34;: &#34;placeholder&#34;,
+                        &#34;genres&#34;: &#34;placeholder&#34;,
+                        &#34;screenshots&#34;: &#34;placeholder&#34;,
+                        &#34;movies&#34;: &#34;placeholder&#34;,
+                        &#34;user_score&#34;: &#34;placeholder&#34;,
+                        &#34;score_rank&#34;: &#34;placeholder&#34;,
+                        &#34;positive&#34;: app_data.get(&#34;positive&#34;, &#34;placeholder&#34;),
+                        &#34;negative&#34;: app_data.get(&#34;negative&#34;, &#34;placeholder&#34;),
+                        &#34;estimated_owners&#34;: app_data.get(&#34;owners&#34;, np.nan),
+                        &#34;average_playtime_forever&#34;: &#34;placeholder&#34;,
+                        &#34;average_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                        &#34;median_playtime_forever&#34;: &#34;placeholder&#34;,
+                        &#34;median_playtime_2weeks&#34;: &#34;placeholder&#34;,
+                        &#34;peak_ccu&#34;: &#34;placeholder&#34;,
+                        &#34;all_tags&#34;: [cat.get(&#34;description&#34;, &#34;placeholder&#34;) for cat in categories],
+                        &#34;steam_id&#34;: app_id
+                    }
+                    if pd.isna(parsed_data[&#34;estimated_owners&#34;]):
+                        parsed_data[&#34;estimated_owners&#34;] = 100000
+
+                    cleaned_data = self.data_cleaner.clean_data(pd.DataFrame([parsed_data]))
+                    if cleaned_data.shape[0] &gt; 0:
+                        games_data.append(cleaned_data.to_dict(&#39;records&#39;)[0])
+                else:
+                    print(f&#34;⚠️ Не удалось получить данные из Steam API и Steam Spy API для app_id: {app_id}. Название игры: {game.get(&#39;name&#39;, &#39;Неизвестно&#39;)}&#34;)
+    return games_data</code></pre>
+</details>
+<div class="desc"><p>Получает данные об играх из Steam API и Steam Spy API.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_dataset"><code class="name flex">
+<span>def <span class="ident">get_games_data_from_dataset</span></span>(<span>self, games)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_games_data_from_dataset(self, games):
+    &#34;&#34;&#34;Извлекает данные об играх из предварительно загруженного датасета.&#34;&#34;&#34;
+    found_games = []
+    not_found_games = []
+    for game in games:
+        app_id = game.get(&#34;appid&#34;)
+        if app_id is not None and app_id in self.train_df.index:
+          found_games.append(self.train_df.loc[app_id])
+        else:
+            not_found_games.append(game)
+    return found_games, not_found_games</code></pre>
+</details>
+<div class="desc"><p>Извлекает данные об играх из предварительно загруженного датасета.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.run_analysis_for_gradio"><code class="name flex">
+<span>def <span class="ident">run_analysis_for_gradio</span></span>(<span>self, steam_user_url)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_analysis_for_gradio(self, steam_user_url):
+    &#34;&#34;&#34;Запускает анализ библиотеки игр пользователя Steam и возвращает рекомендации в текстовом формате для Gradio.&#34;&#34;&#34;
+    ranked_games_with_similarity = self.run_analysis_get_results(steam_user_url) # Вызываем новую функцию для получения результатов
+
+    if not ranked_games_with_similarity:
+        return &#34;❌ Не удалось получить рекомендации для библиотеки пользователя.&#34;
+
+    output_text = &#34;&#34;
+    for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+        method_results = ranked_games_with_similarity.get(group_name, {})
+        if method_results:
+            output_text += f&#34;\n--- 🏆 Рекомендации для группы &#39;{group_name}&#39; ---\n&#34;
+            output_text += f&#34;Игры в группе: {[game_item[&#39;name&#39;] for game_item in self.all_games_with_data.get(group_name, [])]}\n&#34; # Используем сохраненные данные
+            for method, ranked_game_group in method_results.items():
+                recommendations = ranked_game_group.get(&#34;recommendations&#34;)
+                median_similarity = ranked_game_group.get(&#34;median_similarity&#34;)
+                combination_method_name = ranked_game_group.get(&#34;combination_method&#34;)
+
+                output_text += f&#34;\n✨ Метод комбинирования: {combination_method_name}\n&#34;
+                output_text += f&#34;⭐ Медиана similarity score: {median_similarity:.4f}\n&#34;
+                output_text += &#34;✅ Рекомендации:\n&#34;
+                for rec in recommendations:
+                    output_text += f&#34;  - 🎮 Название: {rec[&#39;name&#39;]}, 👤 Владельцы: {rec[&#39;estimated_owners&#39;]}, 🆔 Steam ID: {rec[&#39;steam_id&#39;]}, 💯 Схожесть: {rec[&#39;similarity_score&#39;]:.4f}\n&#34;
+                output_text += &#34;---\n&#34;
+    return output_text</code></pre>
+</details>
+<div class="desc"><p>Запускает анализ библиотеки игр пользователя Steam и возвращает рекомендации в текстовом формате для Gradio.</p></div>
+</dd>
+<dt id="src.steam_library_analyzer.LibraryAnalyzer.run_analysis_get_results"><code class="name flex">
+<span>def <span class="ident">run_analysis_get_results</span></span>(<span>self, steam_user_url)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_analysis_get_results(self, steam_user_url):
+    &#34;&#34;&#34;
+    Запускает анализ библиотеки игр пользователя Steam и возвращает результаты в виде словаря,
+    без форматирования вывода для Gradio.
+    &#34;&#34;&#34;
+    print(f&#34;🚀 Запуск анализа библиотеки для пользователя с URL: {steam_user_url}&#34;)
+    # Убираем повторный вызов resolve_vanity_url, предполагаем, что URL уже корректный
+    # steam_user_id = self.api_parser.resolve_vanity_url(steam_user_url) # УДАЛЯЕМ ЭТУ СТРОКУ
+    steam_user_id_match = re.search(r&#39;/profiles/(\d+)&#39;, steam_user_url) # Пытаемся извлечь SteamID64 из URL
+    if steam_user_id_match:
+        steam_user_id = steam_user_id_match.group(1)
+    elif steam_user_url.isdigit() and len(steam_user_url) == 17: # Если передан SteamID64 напрямую
+        steam_user_id = steam_user_url
+    elif &#39;/id/&#39; in steam_user_url: # Если vanity url, нужно получить id через API
+        vanity_name = steam_user_url.split(&#39;/&#39;)[-1]
+        steam_user_id = self.api_parser.resolve_vanity_url(vanity_name)
+    else:
+        print(&#34;❌ Не удалось получить Steam ID пользователя из URL.&#34;)
+        return None
+
+
+    if not steam_user_id:
+        print(&#34;❌ Не удалось получить Steam ID пользователя.&#34;)
+        return None
+    print(f&#34;👤 Получен Steam ID пользователя: {steam_user_id}&#34;)
+
+    owned_games = self.api_parser.get_owned_games(steam_user_id)
+    if not owned_games:
+        print(&#34;⚠️ Не удалось получить список игр пользователя.&#34;)
+        return None
+    print(f&#34;🎮 Получено {len(owned_games)} игр от пользователя.&#34;)
+
+    grouped_games_data = {}
+    grouped_games = group_user_games(owned_games)
+    print(f&#34;📦 Игры сгруппированы: {grouped_games.keys()}&#34;)
+
+    self.all_games_with_data = {} # Сохраняем данные о играх для использования в Gradio output
+
+    for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+        games = grouped_games.get(group_name, [])
+        if not games:
+            grouped_games_data[group_name] = []
+            continue
+
+        all_games_with_data_for_group = []
+
+        print(f&#34;🔍 Обработка группы игр: {group_name}&#34;)
+        found_games, not_found_games = self.get_games_data_from_dataset(games)
+        print(f&#34;   ✅ Найдено в датасете: {len(found_games)} игр, ⚠️ не найдено в датасете: {len(not_found_games)} игр&#34;)
+        api_games_data = self.get_games_data_from_api(not_found_games)
+        print(f&#34;   ✅ Получено из API: {len(api_games_data)} игр&#34;)
+
+        found_game_dict_list = [fg.to_dict() if isinstance(fg, pd.Series) else fg for fg in found_games]
+        all_games_with_data_for_group = found_game_dict_list + api_games_data
+        self.all_games_with_data[group_name] = all_games_with_data_for_group # Сохраняем тут
+
+    ranked_games_with_similarity = {}
+    combination_methods_to_test = [&#39;average&#39;]
+
+    for group_name in [&#34;recent_games&#34;, &#34;most_played_games&#34;]:
+        games_data = self.all_games_with_data.get(group_name, []) # Используем сохраненные данные
+        if games_data:
+            ranked_games_with_similarity[group_name] = {}
+            for method in combination_methods_to_test:
+                print(f&#34;📊 Расчет similarity score для группы &#39;{group_name}&#39; методом &#39;{method}&#39;&#34;)
+                ranked_group_results = self.calculate_similarity_and_rank(games_data, combination_method=method)
+                ranked_games_with_similarity[group_name][method] = ranked_group_results
+        else:
+            print(f&#34;ℹ️ Нет данных об играх для группы &#39;{group_name}&#39;. Пропускаем расчет similarity.&#34;)
+
+    return ranked_games_with_similarity</code></pre>
+</details>
+<div class="desc"><p>Запускает анализ библиотеки игр пользователя Steam и возвращает результаты в виде словаря,
+без форматирования вывода для Gradio.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.steam_library_analyzer.calculate_similarity_and_rank" href="#src.steam_library_analyzer.calculate_similarity_and_rank">calculate_similarity_and_rank</a></code></li>
+<li><code><a title="src.steam_library_analyzer.load_dataframe" href="#src.steam_library_analyzer.load_dataframe">load_dataframe</a></code></li>
+<li><code><a title="src.steam_library_analyzer.load_model" href="#src.steam_library_analyzer.load_model">load_model</a></code></li>
+<li><code><a title="src.steam_library_analyzer.main" href="#src.steam_library_analyzer.main">main</a></code></li>
+<li><code><a title="src.steam_library_analyzer.process_game_name" href="#src.steam_library_analyzer.process_game_name">process_game_name</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.steam_library_analyzer.LibraryAnalyzer" href="#src.steam_library_analyzer.LibraryAnalyzer">LibraryAnalyzer</a></code></h4>
+<ul class="">
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game" href="#src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game">analyze_single_game</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game_for_gradio" href="#src.steam_library_analyzer.LibraryAnalyzer.analyze_single_game_for_gradio">analyze_single_game_for_gradio</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.calculate_similarity_and_rank" href="#src.steam_library_analyzer.LibraryAnalyzer.calculate_similarity_and_rank">calculate_similarity_and_rank</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_api" href="#src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_api">get_games_data_from_api</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_dataset" href="#src.steam_library_analyzer.LibraryAnalyzer.get_games_data_from_dataset">get_games_data_from_dataset</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.process_game_name" href="#src.steam_library_analyzer.LibraryAnalyzer.process_game_name">process_game_name</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.run_analysis_for_gradio" href="#src.steam_library_analyzer.LibraryAnalyzer.run_analysis_for_gradio">run_analysis_for_gradio</a></code></li>
+<li><code><a title="src.steam_library_analyzer.LibraryAnalyzer.run_analysis_get_results" href="#src.steam_library_analyzer.LibraryAnalyzer.run_analysis_get_results">run_analysis_get_results</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
