@@ -1,0 +1,1312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>src.vectorizer API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.vectorizer</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.vectorizer.calculate_intra_topic_diversity"><code class="name flex">
+<span>def <span class="ident">calculate_intra_topic_diversity</span></span>(<span>model, feature_names, num_top_words=10)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_intra_topic_diversity(model, feature_names, num_top_words=10):
+    &#34;&#34;&#34;Вычисляет разнообразие слов внутри каждой темы, используя энтропию распределения слов.
+
+    Аргументы:
+        model: Обученная тематическая модель (NMF или LDA).
+        feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+        num_top_words (int, optional): Количество топ-слов, учитываемых для расчета энтропии. По умолчанию 10.
+
+    Возвращает:
+        float: Средняя энтропия по всем темам, представляющая внутритопиковое разнообразие. Возвращает -1 в случае ошибки.
+    &#34;&#34;&#34;
+    if not hasattr(model, &#39;components_&#39;):
+        print(&#34;⚠️ Модель не имеет атрибута components_.&#34;)
+        return -1
+
+    topic_vectors = model.components_
+    if isinstance(topic_vectors, cp.ndarray):
+        topic_vectors_np = topic_vectors.get()
+    else:
+        topic_vectors_np = topic_vectors
+    num_topics = topic_vectors_np.shape[0]
+
+    if num_topics == 0:
+        print(&#34;⚠️ Нет тем для расчета разнообразия.&#34;)
+        return -1
+
+    topic_entropies = []
+    for topic in topic_vectors_np:
+        top_word_indices = np.argsort(topic)[::-1][:num_top_words]
+        top_word_probabilities = topic[top_word_indices]
+        normalized_probabilities = top_word_probabilities / np.sum(top_word_probabilities)
+        topic_entropy = entropy(normalized_probabilities, base=2)
+        topic_entropies.append(topic_entropy)
+
+    return np.mean(topic_entropies) if topic_entropies else -1</code></pre>
+</details>
+<div class="desc"><p>Вычисляет разнообразие слов внутри каждой темы, используя энтропию распределения слов.</p>
+<p>Аргументы:
+model: Обученная тематическая модель (NMF или LDA).
+feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+num_top_words (int, optional): Количество топ-слов, учитываемых для расчета энтропии. По умолчанию 10.</p>
+<p>Возвращает:
+float: Средняя энтропия по всем темам, представляющая внутритопиковое разнообразие. Возвращает -1 в случае ошибки.</p></div>
+</dd>
+<dt id="src.vectorizer.calculate_topic_coherence"><code class="name flex">
+<span>def <span class="ident">calculate_topic_coherence</span></span>(<span>model, vectorizer, texts)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_topic_coherence(model, vectorizer, texts):
+    &#34;&#34;&#34;Вычисляет когерентность темы модели.
+
+    Аргументы:
+        model: Обученная тематическая модель (NMF или LDA).
+        vectorizer: Обученный TF-IDF векторизатор.
+        texts (list): Список текстов, использованных для обучения модели.
+
+    Возвращает:
+        float: Значение когерентности темы. Возвращает -999 в случае ошибки.
+    &#34;&#34;&#34;
+    try:
+        feature_names_cuml = vectorizer.get_feature_names()
+
+        if isinstance(feature_names_cuml, cudf.core.series.Series):
+            feature_names = feature_names_cuml.to_pandas().tolist()
+        elif not isinstance(feature_names_cuml, list):
+            return -999
+
+        if hasattr(model, &#39;components_&#39;) and feature_names is not None:
+            topic_vectors = model.components_
+            if isinstance(topic_vectors, cp.ndarray):
+                topic_vectors_np = topic_vectors.get()
+            else:
+                topic_vectors_np = topic_vectors
+
+            top_words_idx = topic_vectors_np.argsort()[:, ::-1]
+            top_words = [[feature_names[i] for i in topic_word_idx[:10]] for topic_word_idx in top_words_idx]
+
+            dictionary = Dictionary([text.split() for text in texts])
+            tokenized_texts = [text.split() for text in texts]
+
+            cm = CoherenceModel(topics=top_words, texts=tokenized_texts, dictionary=dictionary, coherence=&#39;u_mass&#39;)
+
+            coherence_score = cm.get_coherence()
+            return coherence_score
+        else:
+            return -999
+    except Exception:
+        return -999</code></pre>
+</details>
+<div class="desc"><p>Вычисляет когерентность темы модели.</p>
+<p>Аргументы:
+model: Обученная тематическая модель (NMF или LDA).
+vectorizer: Обученный TF-IDF векторизатор.
+texts (list): Список текстов, использованных для обучения модели.</p>
+<p>Возвращает:
+float: Значение когерентности темы. Возвращает -999 в случае ошибки.</p></div>
+</dd>
+<dt id="src.vectorizer.calculate_topic_diversity"><code class="name flex">
+<span>def <span class="ident">calculate_topic_diversity</span></span>(<span>model)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_topic_diversity(model):
+    &#34;&#34;&#34;Вычисляет разнообразие тем на основе косинусного расстояния между векторами тем.
+
+    Аргументы:
+        model: Обученная тематическая модель (NMF или LDA).
+
+    Возвращает:
+        float: Значение разнообразия тем. Возвращает -1 в случае ошибки или если количество тем меньше 2.
+    &#34;&#34;&#34;
+    if not hasattr(model, &#39;components_&#39;):
+        print(&#34;⚠️ Модель не имеет атрибута components_.&#34;)
+        return -1
+
+    topic_vectors = model.components_
+    if isinstance(topic_vectors, cp.ndarray):
+        topic_vectors_np = topic_vectors.get()
+    else:
+        topic_vectors_np = topic_vectors
+
+    if topic_vectors_np.shape[0] &lt; 2:
+        print(&#34;⚠️ Менее двух тем. Невозможно вычислить разнообразие.&#34;)
+        return -1
+
+    num_topics = topic_vectors_np.shape[0]
+    total_similarity = 0
+    num_pairs = 0
+
+    for i in range(num_topics):
+      for j in range(i+1, num_topics):
+         similarity = cosine_similarity(topic_vectors_np[i].reshape(1, -1), topic_vectors_np[j].reshape(1, -1))[0][0]
+         total_similarity += similarity
+         num_pairs += 1
+
+    if num_pairs == 0:
+      return -1
+
+    average_similarity = total_similarity / num_pairs
+    average_distance = 1 - average_similarity
+    return average_distance</code></pre>
+</details>
+<div class="desc"><p>Вычисляет разнообразие тем на основе косинусного расстояния между векторами тем.</p>
+<p>Аргументы:
+model: Обученная тематическая модель (NMF или LDA).</p>
+<p>Возвращает:
+float: Значение разнообразия тем. Возвращает -1 в случае ошибки или если количество тем меньше 2.</p></div>
+</dd>
+<dt id="src.vectorizer.clean_text"><code class="name flex">
+<span>def <span class="ident">clean_text</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_text(text):
+    &#34;&#34;&#34;Выполняет предобработку текста: удаление знаков пунктуации, приведение к нижнему регистру, лемматизация и удаление стоп-слов.
+
+    Аргументы:
+        text (str): Исходный текст для обработки.
+
+    Возвращает:
+        str: Очищенный и обработанный текст в виде строки.
+    &#34;&#34;&#34;
+    text = re.sub(r&#39;[^\w\s]&#39;, &#39;&#39;, text)
+    text = text.lower()
+    tokens = text.split()
+    tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stop_words]
+    return &#34; &#34;.join(tokens)</code></pre>
+</details>
+<div class="desc"><p>Выполняет предобработку текста: удаление знаков пунктуации, приведение к нижнему регистру, лемматизация и удаление стоп-слов.</p>
+<p>Аргументы:
+text (str): Исходный текст для обработки.</p>
+<p>Возвращает:
+str: Очищенный и обработанный текст в виде строки.</p></div>
+</dd>
+<dt id="src.vectorizer.display_topics"><code class="name flex">
+<span>def <span class="ident">display_topics</span></span>(<span>model, feature_names, num_top_words=10)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display_topics(model, feature_names, num_top_words=10):
+    &#34;&#34;&#34;Выводит наиболее значимые слова для каждой темы.
+
+    Аргументы:
+        model: Обученная тематическая модель (NMF или LDA).
+        feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+        num_top_words (int, optional): Количество топ-слов для отображения для каждой темы. По умолчанию 10.
+    &#34;&#34;&#34;
+    for topic_idx, topic in enumerate(model.components_):
+        print(f&#34;   Тема #{topic_idx}:&#34;, end=&#39; &#39;)
+        top_word_indices = topic.argsort()[::-1][:num_top_words]
+        top_words = [feature_names[i] for i in top_word_indices]
+        print(&#34; &#34;.join(top_words))
+    print()</code></pre>
+</details>
+<div class="desc"><p>Выводит наиболее значимые слова для каждой темы.</p>
+<p>Аргументы:
+model: Обученная тематическая модель (NMF или LDA).
+feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+num_top_words (int, optional): Количество топ-слов для отображения для каждой темы. По умолчанию 10.</p></div>
+</dd>
+<dt id="src.vectorizer.display_topics_with_diversity"><code class="name flex">
+<span>def <span class="ident">display_topics_with_diversity</span></span>(<span>model, feature_names, num_top_words=25, num_display_words=10)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display_topics_with_diversity(model, feature_names, num_top_words=25, num_display_words = 10):
+    &#34;&#34;&#34;Выводит наиболее значимые слова для каждой темы и их энтропию.
+
+    Аргументы:
+        model: Обученная тематическая модель (NMF или LDA).
+        feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+        num_top_words (int, optional): Количество топ-слов, рассматриваемых для расчета энтропии. По умолчанию 25.
+        num_display_words (int, optional): Количество топ-слов для отображения для каждой темы. По умолчанию 10.
+    &#34;&#34;&#34;
+    if not hasattr(model, &#39;components_&#39;):
+        print(&#34;⚠️ Модель не имеет атрибута components_.&#34;)
+        return
+
+    topic_vectors = model.components_
+    if isinstance(topic_vectors, cp.ndarray):
+        topic_vectors_np = topic_vectors.get()
+    else:
+        topic_vectors_np = topic_vectors
+
+    for topic_idx, topic in enumerate(topic_vectors_np):
+        print(f&#34;   Тема #{topic_idx}. &#34;, end=&#39; &#39;)
+        top_word_indices = np.argsort(topic)[::-1][:num_top_words]
+        top_words = [feature_names[i] for i in top_word_indices]
+        print(f&#34;Топ-{num_display_words} слов: {&#39; &#39;.join(top_words[:num_display_words])}&#34;)
+        normalized_probabilities = topic[top_word_indices] / np.sum(topic[top_word_indices])
+        topic_entropy = entropy(normalized_probabilities, base=2)
+        print(f&#34;   Энтропия темы: {topic_entropy:.4f}&#34;)
+    print()</code></pre>
+</details>
+<div class="desc"><p>Выводит наиболее значимые слова для каждой темы и их энтропию.</p>
+<p>Аргументы:
+model: Обученная тематическая модель (NMF или LDA).
+feature_names (list): Список названий признаков (слов) из TF-IDF векторизатора.
+num_top_words (int, optional): Количество топ-слов, рассматриваемых для расчета энтропии. По умолчанию 25.
+num_display_words (int, optional): Количество топ-слов для отображения для каждой темы. По умолчанию 10.</p></div>
+</dd>
+<dt id="src.vectorizer.reduce_dataset"><code class="name flex">
+<span>def <span class="ident">reduce_dataset</span></span>(<span>df, percentage=0.1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reduce_dataset(df, percentage=0.1):
+    &#34;&#34;&#34;Уменьшает размер DataFrame до указанной доли, отсортированной по убыванию &#39;estimated_owners&#39;.
+
+    Аргументы:
+        df (pd.DataFrame): Исходный DataFrame.
+        percentage (float): Доля DataFrame, которую нужно оставить (значение от 0 до 1).
+
+    Возвращает:
+        pd.DataFrame: Уменьшенный DataFrame.
+
+    Вызывает ValueError, если percentage не находится в диапазоне [0, 1].
+    &#34;&#34;&#34;
+    if not 0 &lt;= percentage &lt;= 1:
+        raise ValueError(&#34;❌ Процент должен быть в диапазоне от 0 до 1&#34;)
+
+    print(f&#34;📉 Уменьшение датасета до {percentage * 100}%...&#34;)
+    df_sorted = df.sort_values(by=&#39;estimated_owners&#39;, ascending=False)
+    num_rows = int(len(df_sorted) * percentage)
+    reduced_df = df_sorted.head(num_rows)
+    print(f&#34;✅ Датасет уменьшен до {len(reduced_df)} строк.&#34;)
+    return reduced_df</code></pre>
+</details>
+<div class="desc"><p>Уменьшает размер DataFrame до указанной доли, отсортированной по убыванию 'estimated_owners'.</p>
+<p>Аргументы:
+df (pd.DataFrame): Исходный DataFrame.
+percentage (float): Доля DataFrame, которую нужно оставить (значение от 0 до 1).</p>
+<p>Возвращает:
+pd.DataFrame: Уменьшенный DataFrame.</p>
+<p>Вызывает ValueError, если percentage не находится в диапазоне [0, 1].</p></div>
+</dd>
+<dt id="src.vectorizer.vectorize_descriptions"><code class="name flex">
+<span>def <span class="ident">vectorize_descriptions</span></span>(<span>df, nmf_params=None, lda_params=None, vectorizer_cuml=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def vectorize_descriptions(df, nmf_params=None, lda_params=None, vectorizer_cuml=None):
+    &#34;&#34;&#34;Векторизует описания игр, используя TF-IDF и NMF или LDA для тематического моделирования.
+
+    Аргументы:
+        df (pd.DataFrame): DataFrame, содержащий столбец &#39;short_description_clean&#39; с очищенными описаниями.
+        nmf_params (dict, optional): Параметры для NMF. Если указаны, используется NMF. По умолчанию None.
+        lda_params (dict, optional): Параметры для LDA. Если указаны, используется LDA. По умолчанию None.
+        vectorizer_cuml (CumlTfidfVectorizer, optional): Обученный CumlTfidfVectorizer. По умолчанию None.
+
+    Возвращает:
+        tuple: Кортеж, содержащий:
+            - np.ndarray: Векторизованные описания (тематические векторы).
+            - NMF или LatentDirichletAllocation: Обученная модель NMF или LDA.
+
+    Вызывает ValueError, если не предоставлен обученный CumlTfidfVectorizer или не указаны параметры nmf_params или lda_params.
+    &#34;&#34;&#34;
+    if vectorizer_cuml is None:
+        raise ValueError(&#34;❌ Необходимо предоставить обученный CumlTfidfVectorizer.&#34;)
+    desc_vectorized_cuml = vectorizer_cuml.transform(df[&#39;short_description_clean&#39;])
+    desc_vectorized_cuml_cpu = desc_vectorized_cuml.get()
+    data = cp.asnumpy(desc_vectorized_cuml_cpu.data)
+    indices = cp.asnumpy(desc_vectorized_cuml_cpu.indices)
+    indptr = cp.asnumpy(desc_vectorized_cuml_cpu.indptr)
+    shape = desc_vectorized_cuml_cpu.shape
+    desc_vectorized_cpu = csr_matrix((data, indices, indptr), shape=shape)
+
+    if nmf_params:
+        nmf = NMF(**nmf_params)
+        nmf_vectorized = nmf.fit_transform(desc_vectorized_cpu)
+        return nmf_vectorized, nmf
+    elif lda_params:
+        lda = LatentDirichletAllocation(**lda_params)
+        lda_vectorized = lda.fit_transform(desc_vectorized_cpu)
+        return lda_vectorized, lda
+    else:
+        raise ValueError(&#34;❌ Необходимо указать nmf_params или lda_params&#34;)</code></pre>
+</details>
+<div class="desc"><p>Векторизует описания игр, используя TF-IDF и NMF или LDA для тематического моделирования.</p>
+<p>Аргументы:
+df (pd.DataFrame): DataFrame, содержащий столбец 'short_description_clean' с очищенными описаниями.
+nmf_params (dict, optional): Параметры для NMF. Если указаны, используется NMF. По умолчанию None.
+lda_params (dict, optional): Параметры для LDA. Если указаны, используется LDA. По умолчанию None.
+vectorizer_cuml (CumlTfidfVectorizer, optional): Обученный CumlTfidfVectorizer. По умолчанию None.</p>
+<p>Возвращает:
+tuple: Кортеж, содержащий:
+- np.ndarray: Векторизованные описания (тематические векторы).
+- NMF или LatentDirichletAllocation: Обученная модель NMF или LDA.</p>
+<p>Вызывает ValueError, если не предоставлен обученный CumlTfidfVectorizer или не указаны параметры nmf_params или lda_params.</p></div>
+</dd>
+<dt id="src.vectorizer.vectorize_owners"><code class="name flex">
+<span>def <span class="ident">vectorize_owners</span></span>(<span>df, method='log_scale', scaler=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def vectorize_owners(df, method=&#39;log_scale&#39;, scaler=None):
+    &#34;&#34;&#34;Векторизует данные о владельцах игр, используя логарифмическое масштабирование или стандартное масштабирование.
+
+    Аргументы:
+        df (pd.DataFrame): DataFrame, содержащий столбец &#39;estimated_owners&#39;.
+        method (str, optional): Метод векторизации: &#39;log_scale&#39; или &#39;standard&#39;. По умолчанию &#39;log_scale&#39;.
+        scaler (CumlMinMaxScaler, optional): Обученный scaler для масштабирования данных. По умолчанию None.
+
+    Возвращает:
+        np.ndarray: Векторизованные данные о владельцах игр.
+
+    Вызывает ValueError, если указан недопустимый метод векторизации владельцев.
+    &#34;&#34;&#34;
+    owners = df[&#39;estimated_owners&#39;].values.reshape(-1, 1)
+    owners = np.array(owners, dtype=float)
+    owners = np.nan_to_num(owners, nan=0)
+    if method == &#39;log_scale&#39;:
+        owners = np.log1p(owners)
+        if scaler is not None:
+           owners = scaler.transform(owners)
+        owners_weighted = owners * (1 + (owners * 2))
+        return owners_weighted
+    elif method == &#39;standard&#39;:
+        if scaler is not None:
+           owners = scaler.transform(owners)
+        return owners
+    else:
+        raise ValueError(&#34;❌ Недопустимый метод векторизации владельцев.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Векторизует данные о владельцах игр, используя логарифмическое масштабирование или стандартное масштабирование.</p>
+<p>Аргументы:
+df (pd.DataFrame): DataFrame, содержащий столбец 'estimated_owners'.
+method (str, optional): Метод векторизации: 'log_scale' или 'standard'. По умолчанию 'log_scale'.
+scaler (CumlMinMaxScaler, optional): Обученный scaler для масштабирования данных. По умолчанию None.</p>
+<p>Возвращает:
+np.ndarray: Векторизованные данные о владельцах игр.</p>
+<p>Вызывает ValueError, если указан недопустимый метод векторизации владельцев.</p></div>
+</dd>
+<dt id="src.vectorizer.vectorize_tags"><code class="name flex">
+<span>def <span class="ident">vectorize_tags</span></span>(<span>df, multilabel_params=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def vectorize_tags(df, multilabel_params=None):
+    &#34;&#34;&#34;Векторизует теги игр, используя MultiLabelBinarizer для преобразования в бинарные векторы.
+
+    Аргументы:
+        df (pd.DataFrame): DataFrame, содержащий столбец &#39;all_tags&#39; со списками тегов.
+        multilabel_params (dict, optional): Параметры для MultiLabelBinarizer. По умолчанию None.
+
+    Возвращает:
+        tuple: Кортеж, содержащий:
+            - np.ndarray: Векторизованные теги.
+            - MultiLabelBinarizer: Обученный объект MultiLabelBinarizer.
+    &#34;&#34;&#34;
+    default_params = {&#39;sparse_output&#39;: False}
+    params = multilabel_params if multilabel_params else default_params
+    mlb = MultiLabelBinarizer(**params)
+    mlb.fit(df[&#39;all_tags&#39;])
+    tags_vectorized = mlb.transform(df[&#39;all_tags&#39;])
+    return tags_vectorized, mlb</code></pre>
+</details>
+<div class="desc"><p>Векторизует теги игр, используя MultiLabelBinarizer для преобразования в бинарные векторы.</p>
+<p>Аргументы:
+df (pd.DataFrame): DataFrame, содержащий столбец 'all_tags' со списками тегов.
+multilabel_params (dict, optional): Параметры для MultiLabelBinarizer. По умолчанию None.</p>
+<p>Возвращает:
+tuple: Кортеж, содержащий:
+- np.ndarray: Векторизованные теги.
+- MultiLabelBinarizer: Обученный объект MultiLabelBinarizer.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.vectorizer.CombinedVectorizer"><code class="flex name class">
+<span>class <span class="ident">CombinedVectorizer</span></span>
+<span>(</span><span>owners_method='log_scale',<br>multilabel_params=None,<br>nmf_params=None,<br>lda_params=None,<br>tag_weight=1.0,<br>tfidf_cuml_params=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CombinedVectorizer(BaseEstimator, TransformerMixin):
+    &#34;&#34;&#34;Комбинированный векторизатор для обработки различных типов признаков.
+
+    Векторизует данные о владельцах, теги и текстовые описания игр, используя различные методы и векторизаторы.
+
+    Аргументы:
+        owners_method (str, optional): Метод векторизации для данных о владельцах (&#39;log_scale&#39; или &#39;standard&#39;). По умолчанию &#39;log_scale&#39;.
+        multilabel_params (dict, optional): Параметры для MultiLabelBinarizer. По умолчанию None.
+        nmf_params (dict, optional): Параметры для NMF. Если указаны, используется NMF для векторизации описаний. По умолчанию None.
+        lda_params (dict, optional): Параметры для LDA. Если указаны, используется LDA для векторизации описаний. По умолчанию None.
+        tag_weight (float, optional): Вес, применяемый к векторизованным тегам. По умолчанию 1.0.
+        tfidf_cuml_params (dict, optional): Параметры для CumlTfidfVectorizer. По умолчанию None.
+    &#34;&#34;&#34;
+    def __init__(self, owners_method=&#39;log_scale&#39;, multilabel_params=None, nmf_params=None, lda_params=None, tag_weight=1.0, tfidf_cuml_params=None):
+        self.owners_method = owners_method
+        self.multilabel_params = multilabel_params
+        self.nmf_params = nmf_params
+        self.lda_params = lda_params
+        self.tag_weight = tag_weight
+        self.tfidf_cuml_params = tfidf_cuml_params if tfidf_cuml_params else {}
+        self.mlb = None
+        self.nmf = None
+        self.lda = None
+        self.tfidf_feature_names_out_ = None
+        self.scaler = CumlMinMaxScaler()
+        self.transformed_owners_vectors = None
+        self.transformed_tags_vectors = None
+        self.transformed_desc_vectors = None
+        self.transformed_combined_vectors = None
+
+    def fit(self, X, y=None):
+        &#34;&#34;&#34;Обучает векторизатор на предоставленных данных.
+
+        Выполняет векторизацию владельцев, тегов и описаний, а также обучает внутренние векторизаторы и скалеры.
+
+        Аргументы:
+            X (pd.DataFrame): DataFrame, содержащий данные для векторизации (&#39;estimated_owners&#39;, &#39;all_tags&#39;, &#39;short_description_clean&#39;).
+            y (None): Не используется, нужен для совместимости API scikit-learn.
+
+        Возвращает:
+            CombinedVectorizer: Обученный векторизатор.
+        &#34;&#34;&#34;
+        self.owners_vectors = vectorize_owners(X, method=self.owners_method)
+        self.tags_vectors, self.mlb = vectorize_tags(X, multilabel_params=self.multilabel_params)
+        if isinstance(self.tags_vectors, cp.sparse.csr_matrix):
+            print(&#34;ℹ️ Векторы тегов - cupy sparse matrix, преобразование в numpy...&#34;)
+            self.tags_vectors = np.array(cp.asnumpy(self.tags_vectors.todense()), dtype=np.float64)
+        if self.tags_vectors.ndim == 1:
+            self.tags_vectors = self.tags_vectors.reshape(-1, 1)
+
+        cleaned_descriptions = X[&#39;short_description_clean&#39;].str.lower()
+        self.tfidf_cuml.fit(cleaned_descriptions)
+        self.tfidf_feature_names_out_ = [word for word, index in sorted(self.tfidf_cuml.vocabulary_.to_pandas().items(), key=lambda item: item[1])]
+
+        if self.nmf_params and self.lda_params is None:
+            self.desc_vectors, self.nmf = vectorize_descriptions(X, nmf_params=self.nmf_params, vectorizer_cuml=self.tfidf_cuml)
+            self.lda = None
+        elif self.lda_params and self.nmf_params is None:
+             self.desc_vectors, self.lda = vectorize_descriptions(X, lda_params=self.lda_params, vectorizer_cuml=self.tfidf_cuml)
+             self.nmf = None
+        else:
+            raise ValueError(&#34;❌ Необходимо указать nmf_params или lda_params&#34;)
+        print(&#34;✅ Векторизация описаний завершена&#34;)
+
+        if self.nmf and hasattr(self.nmf, &#39;components_&#39;):
+             if np.isnan(self.nmf.components_).any():
+                print(&#34;⚠️ Обнаружены NaN значения в self.nmf.components_ в fit()!&#34;)
+        if self.lda and hasattr(self.lda, &#39;components_&#39;):
+             if np.isnan(self.lda.components_).any():
+                 print(&#34;⚠️ Обнаружены NaN значения в self.lda.components_ в fit()!&#34;)
+
+        owners_vectors = vectorize_owners(X, method=self.owners_method)
+        self.scaler.fit(owners_vectors)
+        return self
+
+    def transform(self, X, y=None):
+        &#34;&#34;&#34;Трансформирует входные данные в комбинированные векторы признаков.
+
+        Использует обученные векторизаторы и скалеры для преобразования данных о владельцах, тегов и описаний в единое векторное представление.
+
+        Аргументы:
+            X (pd.DataFrame): DataFrame, содержащий данные для трансформации.
+            y (None): Не используется, нужен для совместимости API scikit-learn.
+
+        Возвращает:
+            np.ndarray: Матрица комбинированных векторов признаков.
+        &#34;&#34;&#34;
+        owners_vectors = vectorize_owners(X, method=self.owners_method, scaler=self.scaler)
+        owners_vectors = owners_vectors.reshape(owners_vectors.shape[0], -1)
+        tags_vectors = self.mlb.transform(X[&#39;all_tags&#39;])
+
+        tag_weight = self.tag_weight
+        tags_vectors_weighted = tags_vectors * tag_weight
+        tags_vectors = tags_vectors_weighted
+
+        tfidf_transformed_cuml = self.tfidf_cuml.transform(X[&#39;short_description_clean&#39;])
+        tfidf_transformed_cpu = tfidf_transformed_cuml.get()
+        data = cp.asnumpy(tfidf_transformed_cpu.data)
+        indices = cp.asnumpy(tfidf_transformed_cpu.indices)
+        indptr = cp.asnumpy(tfidf_transformed_cpu.indptr)
+        shape = tfidf_transformed_cpu.shape
+        tfidf_transformed = csr_matrix((data, indices, indptr), shape=shape)
+
+        desc_vectors = None
+        if self.nmf_params:
+            desc_vectors = self.nmf.transform(tfidf_transformed)
+        elif self.lda_params:
+            desc_vectors = self.lda.transform(tfidf_transformed)
+
+        if desc_vectors is not None and desc_vectors.shape[0] != owners_vectors.shape[0]:
+            raise ValueError(f&#34;❌ Несовпадение количества образцов между векторами владельцев и описаний: {owners_vectors.shape[0]} vs {desc_vectors.shape[0]}&#34;)
+
+        self.transformed_owners_vectors = owners_vectors
+        self.transformed_tags_vectors = tags_vectors
+        self.transformed_desc_vectors = desc_vectors
+
+        combined_vectors = np.hstack([owners_vectors, tags_vectors.toarray() if hasattr(tags_vectors, &#39;toarray&#39;) else tags_vectors, desc_vectors])
+        self.transformed_combined_vectors = combined_vectors
+
+        return combined_vectors
+
+    def get_params(self, deep=True):
+        &#34;&#34;&#34;Возвращает параметры векторизатора.
+
+        Возвращает словарь параметров данного векторизатора, включая параметры для всех внутренних векторизаторов и методов.
+
+        Аргументы:
+            deep (bool, optional): Если True, также возвращает параметры для вложенных объектов, которые являются оценщиками. По умолчанию True.
+
+        Возвращает:
+            dict: Словарь параметров векторизатора.
+        &#34;&#34;&#34;
+        return {
+            &#39;owners_method&#39;: self.owners_method,
+            &#39;multilabel_params&#39;: self.multilabel_params,
+             &#39;nmf_params&#39;: self.nmf_params,
+            &#39;lda_params&#39;: self.lda_params,
+            &#39;tag_weight&#39;: self.tag_weight,
+            &#39;tfidf_cuml_params&#39;: self.tfidf_cuml_params
+        }
+
+    def set_params(self, **params):
+        &#34;&#34;&#34;Устанавливает параметры векторизатора.
+
+        Позволяет установить параметры векторизатора после инициализации.
+
+        Аргументы:
+            **params: Параметры векторизатора в виде keyword arguments.
+
+        Возвращает:
+            CombinedVectorizer: Векторизатор с установленными параметрами.
+        &#34;&#34;&#34;
+        if &#39;owners_method&#39; in params:
+            self.owners_method = params[&#39;owners_method&#39;]
+        if &#39;multilabel_params&#39; in params:
+            self.multilabel_params = params[&#39;multilabel_params&#39;]
+        if &#39;nmf_params&#39; in params:
+            self.nmf_params = params[&#39;nmf_params&#39;]
+        if &#39;lda_params&#39; in params:
+             self.lda_params = params[&#39;lda_params&#39;]
+        if &#39;tag_weight&#39; in params:
+            self.tag_weight = params[&#39;tag_weight&#39;]
+        if &#39;tfidf_cuml_params&#39; in params:
+            self.tfidf_cuml_params = params[&#39;tfidf_cuml_params&#39;]
+            self.tfidf_cuml.set_params(**params[&#39;tfidf_cuml_params&#39;])
+        return self</code></pre>
+</details>
+<div class="desc"><p>Комбинированный векторизатор для обработки различных типов признаков.</p>
+<p>Векторизует данные о владельцах, теги и текстовые описания игр, используя различные методы и векторизаторы.</p>
+<p>Аргументы:
+owners_method (str, optional): Метод векторизации для данных о владельцах ('log_scale' или 'standard'). По умолчанию 'log_scale'.
+multilabel_params (dict, optional): Параметры для MultiLabelBinarizer. По умолчанию None.
+nmf_params (dict, optional): Параметры для NMF. Если указаны, используется NMF для векторизации описаний. По умолчанию None.
+lda_params (dict, optional): Параметры для LDA. Если указаны, используется LDA для векторизации описаний. По умолчанию None.
+tag_weight (float, optional): Вес, применяемый к векторизованным тегам. По умолчанию 1.0.
+tfidf_cuml_params (dict, optional): Параметры для CumlTfidfVectorizer. По умолчанию None.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>sklearn.base.BaseEstimator</li>
+<li>sklearn.utils._estimator_html_repr._HTMLDocumentationLinkMixin</li>
+<li>sklearn.utils._metadata_requests._MetadataRequester</li>
+<li>sklearn.base.TransformerMixin</li>
+<li>sklearn.utils._set_output._SetOutputMixin</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="src.vectorizer.CombinedVectorizer.fit"><code class="name flex">
+<span>def <span class="ident">fit</span></span>(<span>self, X, y=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fit(self, X, y=None):
+    &#34;&#34;&#34;Обучает векторизатор на предоставленных данных.
+
+    Выполняет векторизацию владельцев, тегов и описаний, а также обучает внутренние векторизаторы и скалеры.
+
+    Аргументы:
+        X (pd.DataFrame): DataFrame, содержащий данные для векторизации (&#39;estimated_owners&#39;, &#39;all_tags&#39;, &#39;short_description_clean&#39;).
+        y (None): Не используется, нужен для совместимости API scikit-learn.
+
+    Возвращает:
+        CombinedVectorizer: Обученный векторизатор.
+    &#34;&#34;&#34;
+    self.owners_vectors = vectorize_owners(X, method=self.owners_method)
+    self.tags_vectors, self.mlb = vectorize_tags(X, multilabel_params=self.multilabel_params)
+    if isinstance(self.tags_vectors, cp.sparse.csr_matrix):
+        print(&#34;ℹ️ Векторы тегов - cupy sparse matrix, преобразование в numpy...&#34;)
+        self.tags_vectors = np.array(cp.asnumpy(self.tags_vectors.todense()), dtype=np.float64)
+    if self.tags_vectors.ndim == 1:
+        self.tags_vectors = self.tags_vectors.reshape(-1, 1)
+
+    cleaned_descriptions = X[&#39;short_description_clean&#39;].str.lower()
+    self.tfidf_cuml.fit(cleaned_descriptions)
+    self.tfidf_feature_names_out_ = [word for word, index in sorted(self.tfidf_cuml.vocabulary_.to_pandas().items(), key=lambda item: item[1])]
+
+    if self.nmf_params and self.lda_params is None:
+        self.desc_vectors, self.nmf = vectorize_descriptions(X, nmf_params=self.nmf_params, vectorizer_cuml=self.tfidf_cuml)
+        self.lda = None
+    elif self.lda_params and self.nmf_params is None:
+         self.desc_vectors, self.lda = vectorize_descriptions(X, lda_params=self.lda_params, vectorizer_cuml=self.tfidf_cuml)
+         self.nmf = None
+    else:
+        raise ValueError(&#34;❌ Необходимо указать nmf_params или lda_params&#34;)
+    print(&#34;✅ Векторизация описаний завершена&#34;)
+
+    if self.nmf and hasattr(self.nmf, &#39;components_&#39;):
+         if np.isnan(self.nmf.components_).any():
+            print(&#34;⚠️ Обнаружены NaN значения в self.nmf.components_ в fit()!&#34;)
+    if self.lda and hasattr(self.lda, &#39;components_&#39;):
+         if np.isnan(self.lda.components_).any():
+             print(&#34;⚠️ Обнаружены NaN значения в self.lda.components_ в fit()!&#34;)
+
+    owners_vectors = vectorize_owners(X, method=self.owners_method)
+    self.scaler.fit(owners_vectors)
+    return self</code></pre>
+</details>
+<div class="desc"><p>Обучает векторизатор на предоставленных данных.</p>
+<p>Выполняет векторизацию владельцев, тегов и описаний, а также обучает внутренние векторизаторы и скалеры.</p>
+<p>Аргументы:
+X (pd.DataFrame): DataFrame, содержащий данные для векторизации ('estimated_owners', 'all_tags', 'short_description_clean').
+y (None): Не используется, нужен для совместимости API scikit-learn.</p>
+<p>Возвращает:
+CombinedVectorizer: Обученный векторизатор.</p></div>
+</dd>
+<dt id="src.vectorizer.CombinedVectorizer.get_params"><code class="name flex">
+<span>def <span class="ident">get_params</span></span>(<span>self, deep=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_params(self, deep=True):
+    &#34;&#34;&#34;Возвращает параметры векторизатора.
+
+    Возвращает словарь параметров данного векторизатора, включая параметры для всех внутренних векторизаторов и методов.
+
+    Аргументы:
+        deep (bool, optional): Если True, также возвращает параметры для вложенных объектов, которые являются оценщиками. По умолчанию True.
+
+    Возвращает:
+        dict: Словарь параметров векторизатора.
+    &#34;&#34;&#34;
+    return {
+        &#39;owners_method&#39;: self.owners_method,
+        &#39;multilabel_params&#39;: self.multilabel_params,
+         &#39;nmf_params&#39;: self.nmf_params,
+        &#39;lda_params&#39;: self.lda_params,
+        &#39;tag_weight&#39;: self.tag_weight,
+        &#39;tfidf_cuml_params&#39;: self.tfidf_cuml_params
+    }</code></pre>
+</details>
+<div class="desc"><p>Возвращает параметры векторизатора.</p>
+<p>Возвращает словарь параметров данного векторизатора, включая параметры для всех внутренних векторизаторов и методов.</p>
+<p>Аргументы:
+deep (bool, optional): Если True, также возвращает параметры для вложенных объектов, которые являются оценщиками. По умолчанию True.</p>
+<p>Возвращает:
+dict: Словарь параметров векторизатора.</p></div>
+</dd>
+<dt id="src.vectorizer.CombinedVectorizer.set_params"><code class="name flex">
+<span>def <span class="ident">set_params</span></span>(<span>self, **params)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_params(self, **params):
+    &#34;&#34;&#34;Устанавливает параметры векторизатора.
+
+    Позволяет установить параметры векторизатора после инициализации.
+
+    Аргументы:
+        **params: Параметры векторизатора в виде keyword arguments.
+
+    Возвращает:
+        CombinedVectorizer: Векторизатор с установленными параметрами.
+    &#34;&#34;&#34;
+    if &#39;owners_method&#39; in params:
+        self.owners_method = params[&#39;owners_method&#39;]
+    if &#39;multilabel_params&#39; in params:
+        self.multilabel_params = params[&#39;multilabel_params&#39;]
+    if &#39;nmf_params&#39; in params:
+        self.nmf_params = params[&#39;nmf_params&#39;]
+    if &#39;lda_params&#39; in params:
+         self.lda_params = params[&#39;lda_params&#39;]
+    if &#39;tag_weight&#39; in params:
+        self.tag_weight = params[&#39;tag_weight&#39;]
+    if &#39;tfidf_cuml_params&#39; in params:
+        self.tfidf_cuml_params = params[&#39;tfidf_cuml_params&#39;]
+        self.tfidf_cuml.set_params(**params[&#39;tfidf_cuml_params&#39;])
+    return self</code></pre>
+</details>
+<div class="desc"><p>Устанавливает параметры векторизатора.</p>
+<p>Позволяет установить параметры векторизатора после инициализации.</p>
+<p>Аргументы:
+**params: Параметры векторизатора в виде keyword arguments.</p>
+<p>Возвращает:
+CombinedVectorizer: Векторизатор с установленными параметрами.</p></div>
+</dd>
+<dt id="src.vectorizer.CombinedVectorizer.transform"><code class="name flex">
+<span>def <span class="ident">transform</span></span>(<span>self, X, y=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transform(self, X, y=None):
+    &#34;&#34;&#34;Трансформирует входные данные в комбинированные векторы признаков.
+
+    Использует обученные векторизаторы и скалеры для преобразования данных о владельцах, тегов и описаний в единое векторное представление.
+
+    Аргументы:
+        X (pd.DataFrame): DataFrame, содержащий данные для трансформации.
+        y (None): Не используется, нужен для совместимости API scikit-learn.
+
+    Возвращает:
+        np.ndarray: Матрица комбинированных векторов признаков.
+    &#34;&#34;&#34;
+    owners_vectors = vectorize_owners(X, method=self.owners_method, scaler=self.scaler)
+    owners_vectors = owners_vectors.reshape(owners_vectors.shape[0], -1)
+    tags_vectors = self.mlb.transform(X[&#39;all_tags&#39;])
+
+    tag_weight = self.tag_weight
+    tags_vectors_weighted = tags_vectors * tag_weight
+    tags_vectors = tags_vectors_weighted
+
+    tfidf_transformed_cuml = self.tfidf_cuml.transform(X[&#39;short_description_clean&#39;])
+    tfidf_transformed_cpu = tfidf_transformed_cuml.get()
+    data = cp.asnumpy(tfidf_transformed_cpu.data)
+    indices = cp.asnumpy(tfidf_transformed_cpu.indices)
+    indptr = cp.asnumpy(tfidf_transformed_cpu.indptr)
+    shape = tfidf_transformed_cpu.shape
+    tfidf_transformed = csr_matrix((data, indices, indptr), shape=shape)
+
+    desc_vectors = None
+    if self.nmf_params:
+        desc_vectors = self.nmf.transform(tfidf_transformed)
+    elif self.lda_params:
+        desc_vectors = self.lda.transform(tfidf_transformed)
+
+    if desc_vectors is not None and desc_vectors.shape[0] != owners_vectors.shape[0]:
+        raise ValueError(f&#34;❌ Несовпадение количества образцов между векторами владельцев и описаний: {owners_vectors.shape[0]} vs {desc_vectors.shape[0]}&#34;)
+
+    self.transformed_owners_vectors = owners_vectors
+    self.transformed_tags_vectors = tags_vectors
+    self.transformed_desc_vectors = desc_vectors
+
+    combined_vectors = np.hstack([owners_vectors, tags_vectors.toarray() if hasattr(tags_vectors, &#39;toarray&#39;) else tags_vectors, desc_vectors])
+    self.transformed_combined_vectors = combined_vectors
+
+    return combined_vectors</code></pre>
+</details>
+<div class="desc"><p>Трансформирует входные данные в комбинированные векторы признаков.</p>
+<p>Использует обученные векторизаторы и скалеры для преобразования данных о владельцах, тегов и описаний в единое векторное представление.</p>
+<p>Аргументы:
+X (pd.DataFrame): DataFrame, содержащий данные для трансформации.
+y (None): Не используется, нужен для совместимости API scikit-learn.</p>
+<p>Возвращает:
+np.ndarray: Матрица комбинированных векторов признаков.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="src.vectorizer.TorchLDA"><code class="flex name class">
+<span>class <span class="ident">TorchLDA</span></span>
+<span>(</span><span>n_topics, n_vocab, device, alpha=0.1, beta=0.01, max_iterations=100, tolerance=0.0001)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TorchLDA(nn.Module):
+    &#34;&#34;&#34;Реализация модели LDA (Latent Dirichlet Allocation) на PyTorch.
+
+    Использует нейронную сеть для моделирования LDA, позволяя использовать GPU для ускорения вычислений.
+
+    Аргументы:
+        n_topics (int): Количество тем для моделирования.
+        n_vocab (int): Размер словаря (количество уникальных слов).
+        device (torch.device): Устройство, на котором будет выполняться обучение (CPU или GPU).
+        alpha (float, optional): Параметр априорного распределения Дирихле для распределения документов по темам. По умолчанию 0.1.
+        beta (float, optional): Параметр априорного распределения Дирихле для распределения тем по словам. По умолчанию 0.01.
+        max_iterations (int, optional): Максимальное количество итераций EM-алгоритма. По умолчанию 100.
+        tolerance (float, optional): Порог сходимости для EM-алгоритма. По умолчанию 1e-4.
+    &#34;&#34;&#34;
+    def __init__(self, n_topics, n_vocab, device, alpha=0.1, beta=0.01, max_iterations=100, tolerance=1e-4):
+        super().__init__()
+        self.n_topics = n_topics
+        self.n_vocab = n_vocab
+        self.device = device
+        self.alpha = alpha
+        self.beta = beta
+        self.max_iterations = max_iterations
+        self.tolerance = tolerance
+        self.topic_term_matrix = nn.Parameter(torch.randn(n_topics, n_vocab, device=device).abs())
+        self.doc_topic_matrix = None
+        self.norm_topic_term_matrix = None
+
+    def initialize_parameters(self, docs):
+        &#34;&#34;&#34;Инициализирует параметры модели LDA случайными значениями.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица документов (не используется в инициализации, но ожидается для совместимости интерфейса).
+        &#34;&#34;&#34;
+        self.doc_topic_matrix = torch.rand(docs.shape[0], self.n_topics, device=self.device).abs()
+        self.topic_term_matrix.data = torch.randn(self.n_topics, self.n_vocab, device=self.device).abs()
+
+    def fit(self, docs, log=False):
+        &#34;&#34;&#34;Обучает модель LDA на основе предоставленных документов, используя EM-алгоритм.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица документов (размерность: количество документов x размер словаря).
+            log (bool, optional): Включает вывод логов во время обучения. По умолчанию False.
+
+        Возвращает:
+            TorchLDA: Обученная модель LDA.
+        &#34;&#34;&#34;
+        if log: print(&#34;LDA Fit started&#34;)
+        self.initialize_parameters(docs)
+        docs = docs.to(self.device)
+        prev_likelihood = float(&#39;-inf&#39;)
+        for iteration in range(self.max_iterations):
+            doc_topic_distribution = self.expect(docs)
+            self.topic_term_matrix = self.maximize(docs, doc_topic_distribution)
+            current_likelihood = self.likelihood(docs, doc_topic_distribution)
+            if log: print(f&#34;Iteration {iteration+1}, Likelihood {current_likelihood:.2f}&#34;)
+            if abs(current_likelihood - prev_likelihood) &lt; self.tolerance:
+                if log: print(&#34;LDA Converged&#34;)
+                break
+            prev_likelihood = current_likelihood
+        self.norm_topic_term_matrix = self.normalize(self.topic_term_matrix)
+        if log: print(&#34;LDA Fit ended&#34;)
+        return self
+
+    def expect(self, docs):
+        &#34;&#34;&#34;Выполняет E-шаг EM-алгоритма для LDA: оценка распределения документов по темам.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица документов.
+
+        Возвращает:
+            torch.Tensor: Матрица распределения документов по темам.
+        &#34;&#34;&#34;
+        doc_topic_distribution = torch.matmul(docs, self.topic_term_matrix.T) + self.alpha
+        doc_topic_distribution = self.normalize(doc_topic_distribution)
+        return doc_topic_distribution
+
+    def maximize(self, docs, doc_topic_distribution):
+        &#34;&#34;&#34;Выполняет M-шаг EM-алгоритма для LDA: оценка распределения тем по словам.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица документов.
+            doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.
+
+        Возвращает:
+            torch.Tensor: Матрица распределения тем по словам.
+        &#34;&#34;&#34;
+        topic_term_matrix = torch.matmul(doc_topic_distribution.T, docs) + self.beta
+        return topic_term_matrix
+
+    def likelihood(self, docs, doc_topic_distribution):
+        &#34;&#34;&#34;Вычисляет логарифмическое правдоподобие для оценки сходимости EM-алгоритма.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица документов.
+            doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.
+
+        Возвращает:
+            float: Значение логарифмического правдоподобия.
+        &#34;&#34;&#34;
+        log_likelihood = torch.sum(docs * torch.log(torch.matmul(doc_topic_distribution, self.normalize(self.topic_term_matrix))))
+        return log_likelihood.item()
+
+    def normalize(self, matrix):
+        &#34;&#34;&#34;Нормализует матрицу, приводя суммы строк к единице.
+
+        Аргументы:
+            matrix (torch.Tensor): Матрица для нормализации.
+
+        Возвращает:
+            torch.Tensor: Нормализованная матрица.
+        &#34;&#34;&#34;
+        row_sums = matrix.sum(axis=1, keepdim=True)
+        return matrix / row_sums
+
+    def transform(self, docs):
+        &#34;&#34;&#34;Преобразует новые документы в векторное представление в пространстве тем.
+
+        Аргументы:
+            docs (torch.Tensor): Матрица новых документов.
+
+        Возвращает:
+            torch.Tensor: Матрица распределения документов по темам для новых документов.
+
+        Вызывает ValueError, если модель LDA еще не обучена.
+        &#34;&#34;&#34;
+        if self.norm_topic_term_matrix is None:
+            raise ValueError(&#34;❌ LDA model has not been fitted yet.&#34;)
+        docs = docs.to(self.device)
+        doc_topic_distribution = torch.matmul(docs, self.norm_topic_term_matrix.T) + self.alpha
+        return self.normalize(doc_topic_distribution)</code></pre>
+</details>
+<div class="desc"><p>Реализация модели LDA (Latent Dirichlet Allocation) на PyTorch.</p>
+<p>Использует нейронную сеть для моделирования LDA, позволяя использовать GPU для ускорения вычислений.</p>
+<p>Аргументы:
+n_topics (int): Количество тем для моделирования.
+n_vocab (int): Размер словаря (количество уникальных слов).
+device (torch.device): Устройство, на котором будет выполняться обучение (CPU или GPU).
+alpha (float, optional): Параметр априорного распределения Дирихле для распределения документов по темам. По умолчанию 0.1.
+beta (float, optional): Параметр априорного распределения Дирихле для распределения тем по словам. По умолчанию 0.01.
+max_iterations (int, optional): Максимальное количество итераций EM-алгоритма. По умолчанию 100.
+tolerance (float, optional): Порог сходимости для EM-алгоритма. По умолчанию 1e-4.</p>
+<p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="src.vectorizer.TorchLDA.expect"><code class="name flex">
+<span>def <span class="ident">expect</span></span>(<span>self, docs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def expect(self, docs):
+    &#34;&#34;&#34;Выполняет E-шаг EM-алгоритма для LDA: оценка распределения документов по темам.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица документов.
+
+    Возвращает:
+        torch.Tensor: Матрица распределения документов по темам.
+    &#34;&#34;&#34;
+    doc_topic_distribution = torch.matmul(docs, self.topic_term_matrix.T) + self.alpha
+    doc_topic_distribution = self.normalize(doc_topic_distribution)
+    return doc_topic_distribution</code></pre>
+</details>
+<div class="desc"><p>Выполняет E-шаг EM-алгоритма для LDA: оценка распределения документов по темам.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица документов.</p>
+<p>Возвращает:
+torch.Tensor: Матрица распределения документов по темам.</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.fit"><code class="name flex">
+<span>def <span class="ident">fit</span></span>(<span>self, docs, log=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fit(self, docs, log=False):
+    &#34;&#34;&#34;Обучает модель LDA на основе предоставленных документов, используя EM-алгоритм.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица документов (размерность: количество документов x размер словаря).
+        log (bool, optional): Включает вывод логов во время обучения. По умолчанию False.
+
+    Возвращает:
+        TorchLDA: Обученная модель LDA.
+    &#34;&#34;&#34;
+    if log: print(&#34;LDA Fit started&#34;)
+    self.initialize_parameters(docs)
+    docs = docs.to(self.device)
+    prev_likelihood = float(&#39;-inf&#39;)
+    for iteration in range(self.max_iterations):
+        doc_topic_distribution = self.expect(docs)
+        self.topic_term_matrix = self.maximize(docs, doc_topic_distribution)
+        current_likelihood = self.likelihood(docs, doc_topic_distribution)
+        if log: print(f&#34;Iteration {iteration+1}, Likelihood {current_likelihood:.2f}&#34;)
+        if abs(current_likelihood - prev_likelihood) &lt; self.tolerance:
+            if log: print(&#34;LDA Converged&#34;)
+            break
+        prev_likelihood = current_likelihood
+    self.norm_topic_term_matrix = self.normalize(self.topic_term_matrix)
+    if log: print(&#34;LDA Fit ended&#34;)
+    return self</code></pre>
+</details>
+<div class="desc"><p>Обучает модель LDA на основе предоставленных документов, используя EM-алгоритм.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица документов (размерность: количество документов x размер словаря).
+log (bool, optional): Включает вывод логов во время обучения. По умолчанию False.</p>
+<p>Возвращает:
+TorchLDA: Обученная модель LDA.</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.initialize_parameters"><code class="name flex">
+<span>def <span class="ident">initialize_parameters</span></span>(<span>self, docs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initialize_parameters(self, docs):
+    &#34;&#34;&#34;Инициализирует параметры модели LDA случайными значениями.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица документов (не используется в инициализации, но ожидается для совместимости интерфейса).
+    &#34;&#34;&#34;
+    self.doc_topic_matrix = torch.rand(docs.shape[0], self.n_topics, device=self.device).abs()
+    self.topic_term_matrix.data = torch.randn(self.n_topics, self.n_vocab, device=self.device).abs()</code></pre>
+</details>
+<div class="desc"><p>Инициализирует параметры модели LDA случайными значениями.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица документов (не используется в инициализации, но ожидается для совместимости интерфейса).</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.likelihood"><code class="name flex">
+<span>def <span class="ident">likelihood</span></span>(<span>self, docs, doc_topic_distribution)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def likelihood(self, docs, doc_topic_distribution):
+    &#34;&#34;&#34;Вычисляет логарифмическое правдоподобие для оценки сходимости EM-алгоритма.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица документов.
+        doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.
+
+    Возвращает:
+        float: Значение логарифмического правдоподобия.
+    &#34;&#34;&#34;
+    log_likelihood = torch.sum(docs * torch.log(torch.matmul(doc_topic_distribution, self.normalize(self.topic_term_matrix))))
+    return log_likelihood.item()</code></pre>
+</details>
+<div class="desc"><p>Вычисляет логарифмическое правдоподобие для оценки сходимости EM-алгоритма.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица документов.
+doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.</p>
+<p>Возвращает:
+float: Значение логарифмического правдоподобия.</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.maximize"><code class="name flex">
+<span>def <span class="ident">maximize</span></span>(<span>self, docs, doc_topic_distribution)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def maximize(self, docs, doc_topic_distribution):
+    &#34;&#34;&#34;Выполняет M-шаг EM-алгоритма для LDA: оценка распределения тем по словам.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица документов.
+        doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.
+
+    Возвращает:
+        torch.Tensor: Матрица распределения тем по словам.
+    &#34;&#34;&#34;
+    topic_term_matrix = torch.matmul(doc_topic_distribution.T, docs) + self.beta
+    return topic_term_matrix</code></pre>
+</details>
+<div class="desc"><p>Выполняет M-шаг EM-алгоритма для LDA: оценка распределения тем по словам.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица документов.
+doc_topic_distribution (torch.Tensor): Матрица распределения документов по темам.</p>
+<p>Возвращает:
+torch.Tensor: Матрица распределения тем по словам.</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.normalize"><code class="name flex">
+<span>def <span class="ident">normalize</span></span>(<span>self, matrix)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize(self, matrix):
+    &#34;&#34;&#34;Нормализует матрицу, приводя суммы строк к единице.
+
+    Аргументы:
+        matrix (torch.Tensor): Матрица для нормализации.
+
+    Возвращает:
+        torch.Tensor: Нормализованная матрица.
+    &#34;&#34;&#34;
+    row_sums = matrix.sum(axis=1, keepdim=True)
+    return matrix / row_sums</code></pre>
+</details>
+<div class="desc"><p>Нормализует матрицу, приводя суммы строк к единице.</p>
+<p>Аргументы:
+matrix (torch.Tensor): Матрица для нормализации.</p>
+<p>Возвращает:
+torch.Tensor: Нормализованная матрица.</p></div>
+</dd>
+<dt id="src.vectorizer.TorchLDA.transform"><code class="name flex">
+<span>def <span class="ident">transform</span></span>(<span>self, docs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transform(self, docs):
+    &#34;&#34;&#34;Преобразует новые документы в векторное представление в пространстве тем.
+
+    Аргументы:
+        docs (torch.Tensor): Матрица новых документов.
+
+    Возвращает:
+        torch.Tensor: Матрица распределения документов по темам для новых документов.
+
+    Вызывает ValueError, если модель LDA еще не обучена.
+    &#34;&#34;&#34;
+    if self.norm_topic_term_matrix is None:
+        raise ValueError(&#34;❌ LDA model has not been fitted yet.&#34;)
+    docs = docs.to(self.device)
+    doc_topic_distribution = torch.matmul(docs, self.norm_topic_term_matrix.T) + self.alpha
+    return self.normalize(doc_topic_distribution)</code></pre>
+</details>
+<div class="desc"><p>Преобразует новые документы в векторное представление в пространстве тем.</p>
+<p>Аргументы:
+docs (torch.Tensor): Матрица новых документов.</p>
+<p>Возвращает:
+torch.Tensor: Матрица распределения документов по темам для новых документов.</p>
+<p>Вызывает ValueError, если модель LDA еще не обучена.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.vectorizer.calculate_intra_topic_diversity" href="#src.vectorizer.calculate_intra_topic_diversity">calculate_intra_topic_diversity</a></code></li>
+<li><code><a title="src.vectorizer.calculate_topic_coherence" href="#src.vectorizer.calculate_topic_coherence">calculate_topic_coherence</a></code></li>
+<li><code><a title="src.vectorizer.calculate_topic_diversity" href="#src.vectorizer.calculate_topic_diversity">calculate_topic_diversity</a></code></li>
+<li><code><a title="src.vectorizer.clean_text" href="#src.vectorizer.clean_text">clean_text</a></code></li>
+<li><code><a title="src.vectorizer.display_topics" href="#src.vectorizer.display_topics">display_topics</a></code></li>
+<li><code><a title="src.vectorizer.display_topics_with_diversity" href="#src.vectorizer.display_topics_with_diversity">display_topics_with_diversity</a></code></li>
+<li><code><a title="src.vectorizer.reduce_dataset" href="#src.vectorizer.reduce_dataset">reduce_dataset</a></code></li>
+<li><code><a title="src.vectorizer.vectorize_descriptions" href="#src.vectorizer.vectorize_descriptions">vectorize_descriptions</a></code></li>
+<li><code><a title="src.vectorizer.vectorize_owners" href="#src.vectorizer.vectorize_owners">vectorize_owners</a></code></li>
+<li><code><a title="src.vectorizer.vectorize_tags" href="#src.vectorizer.vectorize_tags">vectorize_tags</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.vectorizer.CombinedVectorizer" href="#src.vectorizer.CombinedVectorizer">CombinedVectorizer</a></code></h4>
+<ul class="">
+<li><code><a title="src.vectorizer.CombinedVectorizer.fit" href="#src.vectorizer.CombinedVectorizer.fit">fit</a></code></li>
+<li><code><a title="src.vectorizer.CombinedVectorizer.get_params" href="#src.vectorizer.CombinedVectorizer.get_params">get_params</a></code></li>
+<li><code><a title="src.vectorizer.CombinedVectorizer.set_params" href="#src.vectorizer.CombinedVectorizer.set_params">set_params</a></code></li>
+<li><code><a title="src.vectorizer.CombinedVectorizer.transform" href="#src.vectorizer.CombinedVectorizer.transform">transform</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="src.vectorizer.TorchLDA" href="#src.vectorizer.TorchLDA">TorchLDA</a></code></h4>
+<ul class="">
+<li><code><a title="src.vectorizer.TorchLDA.expect" href="#src.vectorizer.TorchLDA.expect">expect</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.fit" href="#src.vectorizer.TorchLDA.fit">fit</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.initialize_parameters" href="#src.vectorizer.TorchLDA.initialize_parameters">initialize_parameters</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.likelihood" href="#src.vectorizer.TorchLDA.likelihood">likelihood</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.maximize" href="#src.vectorizer.TorchLDA.maximize">maximize</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.normalize" href="#src.vectorizer.TorchLDA.normalize">normalize</a></code></li>
+<li><code><a title="src.vectorizer.TorchLDA.transform" href="#src.vectorizer.TorchLDA.transform">transform</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
