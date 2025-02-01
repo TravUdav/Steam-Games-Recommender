@@ -100,7 +100,6 @@ class FileHandler:
             print(f"❌ Ошибка сохранения данных в {path}: {e}")
             raise
 
-
 class DataCleaner:
     """
     Класс для очистки и предобработки набора данных об играх.
