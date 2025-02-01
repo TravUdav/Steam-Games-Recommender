@@ -100,7 +100,7 @@ class FileHandler:
             print(f"❌ Ошибка сохранения данных в {path}: {e}")
             raise
 
-@cached(cache=_data_cleaner_cache)
+# @cached(cache=_data_cleaner_cache)
 class DataCleaner:
     """
     Класс для очистки и предобработки набора данных об играх.
@@ -180,7 +180,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с удаленными столбцами.
         """
-        initial_shape = df.shape
         columns_to_drop_exist = [col for col in self.columns_to_drop if col in df.columns]
         df.drop(columns=columns_to_drop_exist, inplace=True, errors='ignore')
         return df
@@ -198,7 +197,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: Отфильтрованный DataFrame.
         """
-        initial_shape = df.shape
 
         mask_to_remove = (
             ((df['short_description'].isna()) | (df['short_description'] == '')) |
@@ -224,7 +222,7 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: Отфильтрованный DataFrame.
         """
-        initial_shape = df.shape
+
 
         def clean_name(text):
              if isinstance(text, str):
@@ -256,9 +254,13 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с преобразованным столбцом 'release_date'.
         """
-        initial_shape = df.shape
-        df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
-        return df
+        def _convert_release_date(self, df):
+            if 'release_date' in df.columns:
+                df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
+            else:
+                print("⚠️ Столбец 'release_date' отсутствует в данных. Создан пустой столбец.")
+                df['release_date'] = pd.NaT
+            return df
 
     def _convert_bool_columns(self, df):
          """
@@ -273,13 +275,22 @@ class DataCleaner:
         Returns:
             pandas.DataFrame: DataFrame с преобразованными булевыми столбцами.
         """
+         if df is None or df.empty:  # Проверка на пустой DF
+             print("⚠️ DataFrame пуст. Пропуск преобразования булевых столбцов.")
+             return df
+        
          initial_shape = df.shape
          bool_mapping = {'true': True, 'false': False}
-         for col in ['windows', 'mac', 'linux']:
-              if col in df.columns:
-                df[col] = df[col].astype(str).str.lower().replace({'nan': None})
-                df[col] = df[col].map(bool_mapping).fillna(False).astype(bool)
-         return df
+        
+         try:
+             for col in ['windows', 'mac', 'linux']:
+                 if col in df.columns:
+                     df[col] = df[col].astype(str).str.lower().replace({'nan': None})
+                     df[col] = df[col].map(bool_mapping).fillna(False).astype(bool)
+             return df
+         except Exception as e:
+             print(f"⚠️ Ошибка в преобразовании столбца {col}: {e}")
+             return df  # Возвращаем исходный DF вместо прерывания
 
     def _extract_owners(self, df):
          """
@@ -294,7 +305,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с преобразованным столбцом 'estimated_owners', содержащим целочисленные значения.
         """
-         initial_shape = df.shape
          def extract_first_number(owner_range):
             if isinstance(owner_range, str):
                 parts = owner_range.split(' ', 1)
@@ -321,7 +331,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с добавленным столбцом 'all_tags', содержащим списки объединенных тегов.
         """
-         initial_shape = df.shape
          def combine_tags(row):
             all_tags_list = []
 
@@ -352,7 +361,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с замененными пустыми значениями в столбцах 'developers' и 'publishers'.
         """
-        initial_shape = df.shape
         def replace_empty_with_none(series):
             def replace_item(item):
                 if item == [] or item == [''] or item == [""] or item == "":
@@ -380,7 +388,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: Отфильтрованный DataFrame, содержащий только описания на английском или русском языках.
         """
-        initial_shape = df.shape
 
         def is_english_or_russian(text):
            if not isinstance(text, str):
@@ -411,7 +418,6 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с добавленными столбцами '_clean' для очищенных описаний ('detailed_description_clean', 'short_description_clean').
         """
-        initial_shape = df.shape
 
         def clean_and_lemmatize(text, lang='en'):
             if not isinstance(text, str):
@@ -447,7 +453,7 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с удаленными специфическими словами из очищенных описаний.
         """
-        initial_shape = df.shape
+
         def remove_words(text):
             if isinstance(text, str):
                 words = text.split()
@@ -472,7 +478,7 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: Отфильтрованный DataFrame, соответствующий заданным ограничениям по длине описаний.
         """
-        initial_shape = df.shape
+
         if isinstance(data, str):
             df_filtered = df[(df['short_description_clean'].str.len() >= self.min_description_length) & (df['short_description_clean'].str.len() <= self.max_description_length)].copy()
         else:
@@ -492,7 +498,7 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: DataFrame с очищенными и приведенными к нижнему регистру тегами.
         """
-        initial_shape = df.shape
+
         def clean_tags(tags):
             if isinstance(tags, list):
                 cleaned_tags = [re.sub(r'[^a-zA-Z0-9\s]', '', tag).lower().strip() for tag in tags]
@@ -515,7 +521,7 @@ class DataCleaner:
         Возвращает:
             pandas.DataFrame: Отфильтрованный DataFrame, содержащий только игры с достаточным количеством тегов.
         """
-        initial_shape = df.shape
+
         df_filtered = df[df['all_tags'].apply(lambda x: isinstance(x, list) and len(x) >= self.min_tags)].copy()
         return df_filtered
 
@@ -539,37 +545,52 @@ class DataCleaner:
         Выводит в консоль сообщения о начале и завершении процесса очистки, а также начальную и конечную форму DataFrame.
         """
          print("🧹 Начинается процесс очистки данных...")
+        
+         # Загрузка данных
          if isinstance(data, str):
-              file_handler = FileHandler()
-              df = file_handler.load_data(data)
-              apply_description_length_filter = True
+             file_handler = FileHandler()
+             df = file_handler.load_data(data)
+             apply_description_length_filter = True
          elif isinstance(data, pd.DataFrame):
              df = data.copy()
              apply_description_length_filter = False
          else:
              raise ValueError("❌ Входные данные должны быть pandas DataFrame или путем к файлу.")
 
-         initial_shape = df.shape
-         print(f"📊 Исходная форма DataFrame перед очисткой: {initial_shape}")
+         # Отладочная информация
+         print(f"📊 Исходная форма: {df.shape}")
+         print("Столбцы перед обработкой:", df.columns.tolist())
 
-         df = self._filter_rows(df)
-         df = self._combine_tags(df)
-         df = self._drop_unnecessary_columns(df)
-         df = self._filter_name_chars(df)
-         df = self._convert_release_date(df)
-         df = self._convert_bool_columns(df)
-         df = self._extract_owners(df)
-         df = self._replace_empty_values(df)
-         df = self._filter_by_language(df)
-         df = self._clean_and_lemmatize_descriptions(df)
-         df = self._remove_specific_words_from_descriptions(df)
-         if apply_description_length_filter:
-            df = self._filter_description_length(df)
-         df = self._clean_and_lowercase_tags(df)
-         df = self._filter_tags_count(df)
+         # Цепочка обработки с проверками
+         processing_steps = [
+             self._filter_rows,
+             self._combine_tags,
+             self._drop_unnecessary_columns,
+             self._filter_name_chars,
+             self._convert_release_date,
+             self._convert_bool_columns,
+             self._extract_owners,
+             self._replace_empty_values,
+             self._filter_by_language,
+             self._clean_and_lemmatize_descriptions,
+             self._remove_specific_words_from_descriptions,
+             lambda x: self._filter_description_length(x) if apply_description_length_filter else x,
+             self._clean_and_lowercase_tags,
+             self._filter_tags_count
+         ]
 
-         print(f"✅ Процесс очистки данных завершен. Итоговая форма: {df.shape}")
-         return df
+         for step in processing_steps:
+             try:
+                 if df is None or df.empty:  # Прекращаем обработку если DF стал пустым
+                     print("⚠️ DataFrame пуст. Прекращение обработки.")
+                     break
+                 df = step(df)
+             except Exception as e:
+                 print(f"⚠️ Ошибка на шаге {step.__name__}: {e}")
+                 continue
+
+         print(f"✅ Процесс очистки завершен. Итоговая форма: {df.shape if df is not None else 0}")
+         return df if df is not None else pd.DataFrame()
 
 
 if __name__ == '__main__':
