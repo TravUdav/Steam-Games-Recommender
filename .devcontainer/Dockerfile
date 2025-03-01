@@ -71,4 +71,6 @@ COPY --chown=${USER}:${USER} . .
 RUN chown -R ${USER}:${USER} /workspace
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+EXPOSE 7860
+
+CMD ["python", "src/web/gradio_demo.py"]
